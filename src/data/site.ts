@@ -9,7 +9,7 @@ export const site = {
   tagline: 'The whole line, or nothing.',
 
   /** Solana mint address. Leeg = pre-launch modus. */
-  tokenAddress: '',
+  tokenAddress: 'AoLGyZpNoW1fQmcz1E63VZwXWUpHS8bpeY9s2wU1pump',
 
   /**
    * De twee potten, allebei publiek.
@@ -147,8 +147,9 @@ export const site = {
     x: 'https://x.com/EmberTokenTCG',
     telegram: 'https://t.me/embertokenTCG',
     youtube: '',
-    pumpfun: '',
-    dexscreener: '',
+    pumpfun: 'https://pump.fun/coin/AoLGyZpNoW1fQmcz1E63VZwXWUpHS8bpeY9s2wU1pump',
+    dexscreener:
+      'https://dexscreener.com/solana/6cXTWevH5goRPiv38dEYe2nztDURSUA6aJkHcMKUbqQG',
   },
 } as const
 
