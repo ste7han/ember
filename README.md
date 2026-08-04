@@ -35,7 +35,7 @@ commit, en `npm run deploy` zet het binnen een minuut live.
 | `tokenAddress`  | Het mint address van pump.fun. Zolang dit leeg is staat de site in pre-launch modus. |
 | `creatorWallet` | De publieke wallet waar de fees binnenkomen. Vult de "verifieer op Solscan"-link. |
 | `scope`         | De afbakening van de missie. Zie hieronder — dit is het belangrijkste veld op de site. Bevat een `snapshotDate`; wijzig die niet zonder de checklist opnieuw te genereren. |
-| `feeSplit`      | Verdeling tussen The Hunt en The Rips, in procenten. Moet samen 100 zijn. |
+| `feeSplit`      | Verdeling tussen The Hunt, The Rips en Dev, in procenten. Moet samen 100 zijn. |
 | `links`         | X, YouTube, pump.fun, DexScreener. Lege links worden automatisch verborgen of uitgeschakeld. |
 
 Zodra `tokenAddress` is ingevuld haalt de site elke 45 seconden live prijs en
@@ -131,9 +131,10 @@ voetnoot. Een project dat 100% claimt en er stiekem iets afhaalt is één blik o
 Solscan verwijderd van klaar zijn; een project dat zegt "dit is mijn deel, kijk
 mee" wordt juist geloofd.
 
-Verander je `feeSplit` in `site.ts`, pas dan ook de uitleg in
-`components/Mission.tsx` aan. Daar staat waaróm het zo verdeeld is, en die
-redenering klopt niet meer bij andere getallen.
+Verander je `feeSplit` in `site.ts`, loop dan ook deze plekken na: de uitleg in
+`components/Mission.tsx`, de badge in `Hero.tsx`, en de meta-omschrijving in
+`index.html`. Daar staan de getallen ook in woorden, en die lopen anders uit de
+pas met de werkelijkheid.
 
 ### `src/data/collection.json` — na elke aankoop
 
