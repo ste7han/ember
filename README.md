@@ -13,7 +13,7 @@ npm run build    # productiebuild in dist/
 npm run preview  # bekijk de productiebuild lokaal
 ```
 
-Deploy op Cloudflare Pages:
+Live op **https://ember.cards**. Deploy op Cloudflare Pages:
 
 ```bash
 npm run deploy        # bouwt en zet live
