@@ -22,10 +22,12 @@ export const site = {
    * beweren hoeveel er in de pot zit maar het gewoon laat zien.
    */
   wallets: {
-    /** 50% — losse kaarten van de checklist kopen. Voedt de teller. */
+    /** 40% — losse kaarten van de checklist kopen. Voedt de teller. */
     hunt: '9buyzGoxoN2HQdtdueVdfbNPF5f9eboFcF4GfSzZEaLG',
-    /** 50% — verzegelde pakjes. Wat eruit komt gaat naar burns en giveaways. */
+    /** 40% — verzegelde pakjes. Wat eruit komt gaat naar burns en giveaways. */
     rips: 'AhjomZS8EPnY8vMVcWDehAF4NZxi7Y6Panr6f4K5oGUK',
+    /** 20% — kosten en eigen aankopen. Staat er net zo zichtbaar bij als de rest. */
+    dev: '9a6iTDCcJdZ6KXTpn2MoxE6Kg2GewCqPfv3yoLGw3Kiw',
   },
 
   /** Blijft bestaan voor de "verifieer op Solscan"-link; wijst naar de jachtpot. */
@@ -67,18 +69,22 @@ export const site = {
    * - `rips` — verzegelde pakjes om op camera te openen. Alles wat daar uit
    *   komt en niet in de lijn thuishoort, gaat naar holders.
    *
-   * De verdeling is 50/50 en dat is een keuze, geen optimum. Pakjes zijn een
-   * hopeloos inefficiënte manier om een set compleet te krijgen — puur op snelheid
-   * zou alles naar `hunt` moeten. De helft gaat naar `rips` omdat de helft van
-   * dit project voor de holders is. Dat betekent dat de set ongeveer twee keer
-   * zo lang duurt. Dat is de prijs, en die staat zichtbaar op de site.
+   * - `dev` — kosten en eigen aankopen: listings, gereedschap, en pakjes die
+   *   ik voor mezelf koop.
+   *
+   * 40/40/20. Tachtig procent gaat naar de missie en de holders, twintig procent
+   * naar het draaiend houden. Dat laatste staat er met naam en wallet bij, want
+   * een project dat 100% claimt en er stiekem iets afhaalt is één blik op
+   * Solscan verwijderd van klaar zijn.
    *
    * Moet samen 100 zijn. Verander je dit, pas dan ook de uitleg in
-   * `components/Mission.tsx` aan — daar staat waaróm het zo verdeeld is.
+   * `components/Mission.tsx` en de badge in `Hero.tsx` aan — daar staan de
+   * getallen ook in woorden.
    */
   feeSplit: {
-    hunt: 50,
-    rips: 50,
+    hunt: 40,
+    rips: 40,
+    dev: 20,
   },
 
   /**

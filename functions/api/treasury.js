@@ -14,6 +14,7 @@ import { json } from '../_lib/solana.js'
 const WALLETS = {
   hunt: '9buyzGoxoN2HQdtdueVdfbNPF5f9eboFcF4GfSzZEaLG',
   rips: 'AhjomZS8EPnY8vMVcWDehAF4NZxi7Y6Panr6f4K5oGUK',
+  dev: '9a6iTDCcJdZ6KXTpn2MoxE6Kg2GewCqPfv3yoLGw3Kiw',
 }
 
 const LAMPORTS_PER_SOL = 1_000_000_000
@@ -70,9 +71,10 @@ export async function onRequestGet({ env }) {
   }
 
   try {
-    const [huntLamports, ripsLamports, price] = await Promise.all([
+    const [huntLamports, ripsLamports, devLamports, price] = await Promise.all([
       rpc(rpcUrl, 'getBalance', [WALLETS.hunt]),
       rpc(rpcUrl, 'getBalance', [WALLETS.rips]),
+      rpc(rpcUrl, 'getBalance', [WALLETS.dev]),
       solPriceUsd(),
     ])
 
@@ -85,6 +87,7 @@ export async function onRequestGet({ env }) {
       {
         hunt: pot(huntLamports),
         rips: pot(ripsLamports),
+        dev: pot(devLamports),
         solPriceUsd: price,
         fetchedAt: new Date().toISOString(),
       },

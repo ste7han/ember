@@ -102,7 +102,7 @@ export function Hero() {
         <div className="inline-flex items-center gap-2 rounded-full border border-ash-700 bg-ash-900/60 px-4 py-1.5">
           <Flame className="h-3.5 w-3.5" />
           <span className="text-xs font-medium text-bone-300">
-            100% of creator fees buy cards
+            {site.feeSplit.hunt + site.feeSplit.rips}% of creator fees buy cards
           </span>
         </div>
 

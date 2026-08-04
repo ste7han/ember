@@ -94,17 +94,25 @@ export function HowPage() {
             So if this were only about finishing fast, every cent would go to the
             hunt. It isn't. The fees split{' '}
             <span className="text-bone-100">
-              {site.feeSplit.hunt}/{site.feeSplit.rips}
+              {site.feeSplit.hunt}/{site.feeSplit.rips}/{site.feeSplit.dev}
             </span>
-            , because half of this belongs to the people holding: everything we
-            pull from a pack that isn't part of the line goes straight to them.
+            : {site.feeSplit.hunt}% hunts singles off the checklist,{' '}
+            {site.feeSplit.rips}% buys sealed packs whose contents go to holders,
+            and {site.feeSplit.dev}% covers what it costs to run this.
           </p>
           <p>
-            We could finish the set roughly twice as quickly by keeping it all.
-            That's the trade, and it's deliberate.
+            That last {site.feeSplit.dev}% is my cut and I would rather say so
+            than have you find it. It pays for listings, tools and hosting, and
+            for packs I buy for my own collecting. A project that claims every
+            cent goes to the community is one glance at a block explorer away
+            from being finished.
           </p>
           <p>
-            Both halves sit in their own public wallet, and the front page shows
+            We could finish the set a good deal quicker by keeping the pack
+            money too. That's the trade, and it's deliberate.
+          </p>
+          <p>
+            All three sit in their own public wallet, and the front page shows
             what's in each of them right now. You don't have to believe the
             split. You can watch it.
           </p>
@@ -118,6 +126,17 @@ export function HowPage() {
                 className="text-ember-500 underline underline-offset-4 hover:text-ember-400"
               >
                 {site.wallets.hunt}
+              </a>
+            </li>
+            <li>
+              Dev:{' '}
+              <a
+                href={`https://solscan.io/account/${site.wallets.dev}`}
+                target="_blank"
+                rel="noreferrer"
+                className="text-ember-500 underline underline-offset-4 hover:text-ember-400"
+              >
+                {site.wallets.dev}
               </a>
             </li>
             <li>

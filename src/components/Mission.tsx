@@ -13,7 +13,7 @@ const steps = [
   {
     n: '01',
     title: 'Fees come in',
-    body: `Every trade generates a creator fee. We take none of it. It splits down the middle into two public wallets you can watch.`,
+    body: `Every trade generates a creator fee. It splits three ways into public wallets you can watch, and nothing moves without leaving a trace.`,
   },
   {
     n: '02',
@@ -78,7 +78,7 @@ function Engines() {
   const { treasury, status } = useTreasury()
 
   return (
-    <div className="mt-12 grid gap-4 sm:grid-cols-2">
+    <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       <div className="rounded-2xl border border-ember-700/50 bg-ember-600/5 p-6">
         <div className="flex items-baseline justify-between gap-3">
           <h3 className="font-display text-lg font-bold">The Hunt</h3>
@@ -119,6 +119,30 @@ function Engines() {
           status={status}
         />
       </div>
+
+      {/*
+        De dev-pot krijgt bewust dezelfde behandeling als de andere twee: eigen
+        kaart, live saldo, Solscan-link. Wegmoffelen in een voetnoot zou de hele
+        opzet ondermijnen, want dit is nu juist het cijfer waar mensen naar
+        zoeken.
+      */}
+      <div className="rounded-2xl border border-ash-700 bg-ash-800/40 p-6">
+        <div className="flex items-baseline justify-between gap-3">
+          <h3 className="font-display text-lg font-bold">Dev</h3>
+          <span className="tnum font-mono text-sm font-semibold text-bone-300">
+            {site.feeSplit.dev}%
+          </span>
+        </div>
+        <p className="mt-3 text-sm leading-relaxed text-bone-300">
+          What it costs to run this: listings, tools, hosting, and packs I buy
+          for my own collecting. My cut, stated out loud.
+        </p>
+        <PotBalance
+          pot={treasury?.dev}
+          wallet={site.wallets.dev}
+          status={status}
+        />
+      </div>
     </div>
   )
 }
@@ -136,8 +160,8 @@ export function Mission() {
       lede={
         <>
           Every card in the Charmander line, 1999 to last month.{' '}
-          {num(targetTotal)} of them. Most collectors chase whatever's hot. We picked
-          the boring, countable, finishable thing instead.
+          {num(targetTotal)} of them. Most collectors chase whatever's hot. We
+          picked the boring, countable, finishable thing instead.
         </>
       }
     >

@@ -5,6 +5,7 @@ export type Pot = { sol: number; usd: number | null }
 export type Treasury = {
   hunt: Pot
   rips: Pot
+  dev: Pot
   solPriceUsd: number | null
   fetchedAt: string
 }

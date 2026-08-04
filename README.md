@@ -1,6 +1,6 @@
 # EMBER
 
-Website voor de $EMBER token. 100% van de creator fees koopt elke kaart uit de
+Website voor de $EMBER token. 80% van de creator fees koopt elke kaart uit de
 Charmander-evolutielijn — Charmander, dan Charmeleon, dan Charizard. De
 voortgangsbalk op de homepage is het hart van de site.
 
@@ -116,14 +116,20 @@ De site houdt twee dingen bewust uit elkaar, omdat ze niet hetzelfde doen:
 - **The Rips** — verzegelde pakjes om op camera te openen. Alles wat daaruit
   komt en niet in de lijn thuishoort, gaat naar holders.
 
-De verdeling is **50/50**, en dat is een keuze en geen optimum. Een set compleet
-krijgen via pakjes is hopeloos inefficiënt — je koopt de kaart die je mist als
-single, voor een fractie. Puur op snelheid zou alles naar The Hunt moeten.
+- **Dev** — kosten en eigen aankopen: listings, gereedschap, hosting, en pakjes
+  die je voor jezelf koopt.
 
-De helft gaat naar The Rips omdat de helft van dit project voor de holders is.
-**Dat betekent dat de set ongeveer twee keer zo lang duurt.** Dat is de prijs,
-en die staat zichtbaar op de site — verstop hem niet, want het is juist het
-punt: je kunt sneller klaar zijn door alles te houden, en dat doe je niet.
+De verdeling is **40/40/20**. Tachtig procent gaat naar de missie en de holders,
+twintig procent naar het draaiend houden.
+
+Een set compleet krijgen via pakjes is hopeloos inefficiënt — je koopt de kaart
+die je mist als single, voor een fractie. Puur op snelheid zou alles naar The
+Hunt moeten. Dat het niet zo is, is een keuze.
+
+**Die 20% staat met naam en wallet op de site.** Verstop dat niet in een
+voetnoot. Een project dat 100% claimt en er stiekem iets afhaalt is één blik op
+Solscan verwijderd van klaar zijn; een project dat zegt "dit is mijn deel, kijk
+mee" wordt juist geloofd.
 
 Verander je `feeSplit` in `site.ts`, pas dan ook de uitleg in
 `components/Mission.tsx` aan. Daar staat waaróm het zo verdeeld is, en die
