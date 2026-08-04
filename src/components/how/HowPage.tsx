@@ -66,6 +66,14 @@ export function HowPage() {
             . {site.scope.detail}
           </p>
           <p>
+            That last bit matters. Seven designs in this line only ever came out
+            in Japan, so leaving them out would mean the set was never really
+            complete. Japanese versions of cards that also exist in English are
+            a different story: same artwork, same text, another language. Those
+            do not count, or the list would be twice the size for cards you
+            already have.
+          </p>
+          <p>
             Counted from the source on {shortDate(site.scope.snapshotDate)} and
             locked. New sets do get printed; if one adds cards to the list, we
             say so out loud before any total changes. A denominator that moves

@@ -18,7 +18,7 @@ import { num } from '../lib/format'
  * Dat is de enige echte kaart die hier ooit te zien is, en die mag, omdat het
  * onze eigen kaart is.
  *
- * `title` doet het tooltipwerk. Bewust geen eigen tooltip-component: 200 stuks
+ * `title` doet het tooltipwerk. Bewust geen eigen tooltip-component: 207 stuks
  * met eigen state en positionering is veel machinerie voor iets dat de browser
  * gratis en toegankelijk doet.
  */
@@ -100,7 +100,7 @@ function StageBand({
 }
 
 /**
- * Alle 200 drukken als muur. Dit is dezelfde informatie als de
+ * Alle kaarten als muur. Dit is dezelfde informatie als de
  * voortgangsbalken, maar dan zo dat je in één oogopslag ziet hoe groot de
  * opgave werkelijk is — en hoe ver we zijn.
  */

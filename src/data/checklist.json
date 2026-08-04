@@ -1,5 +1,5 @@
 {
-  "snapshotDate": "2026-08-03",
+  "snapshotDate": "2026-08-04",
   "source": "Bulbapedia",
   "note": "Gegenereerd door scripts/verify-totals.mjs. Niet met de hand bewerken.",
   "rows": [
@@ -52,6 +52,15 @@
       "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmander_(TCG)"
     },
     {
+      "id": "ember-expansion-sheet-1-charmander",
+      "stage": "ember",
+      "card": "Charmander",
+      "set": "Expansion Sheet 1",
+      "number": null,
+      "japaneseOnly": true,
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmander_(TCG)"
+    },
+    {
       "id": "ember-expedition-base-set-97-165",
       "stage": "ember",
       "card": "Charmander",
@@ -65,6 +74,15 @@
       "card": "Charmander",
       "set": "Expedition Base Set",
       "number": "98/165",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmander_(TCG)"
+    },
+    {
+      "id": "ember-mcdonald-s-pok-mon-e-minimum-pack-004-018",
+      "stage": "ember",
+      "card": "Charmander",
+      "set": "McDonald's Pokémon-e Minimum Pack",
+      "number": "004/018",
+      "japaneseOnly": true,
       "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmander_(TCG)"
     },
     {
@@ -145,6 +163,15 @@
       "card": "Charmander",
       "set": "Secret Wonders",
       "number": "82/132",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmander_(TCG)"
+    },
+    {
+      "id": "ember-dp-p-promotional-cards-124-dp-p",
+      "stage": "ember",
+      "card": "Charmander",
+      "set": "DP-P Promotional cards",
+      "number": "124/DP-P",
+      "japaneseOnly": true,
       "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmander_(TCG)"
     },
     {
@@ -441,6 +468,15 @@
       "card": "Charmeleon",
       "set": "Expedition Base Set",
       "number": "73/165",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmeleon_(TCG)"
+    },
+    {
+      "id": "flame-t-promotional-cards-011-t",
+      "stage": "flame",
+      "card": "Charmeleon",
+      "set": "T Promotional cards",
+      "number": "011/T",
+      "japaneseOnly": true,
       "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmeleon_(TCG)"
     },
     {
@@ -756,6 +792,15 @@
       "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
     },
     {
+      "id": "inferno-unnumbered-promotional-cards-charizard",
+      "stage": "inferno",
+      "card": "Charizard",
+      "set": "Unnumbered Promotional cards",
+      "number": null,
+      "japaneseOnly": true,
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
       "id": "inferno-expedition-base-set-6-165",
       "stage": "inferno",
       "card": "Charizard",
@@ -940,6 +985,15 @@
       "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
     },
     {
+      "id": "inferno-s-p-promotional-cards-143-s-p",
+      "stage": "inferno",
+      "card": "Charizard",
+      "set": "S-P Promotional cards",
+      "number": "143/S-P",
+      "japaneseOnly": true,
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
       "id": "inferno-pok-mon-go-010-078",
       "stage": "inferno",
       "card": "Charizard",
@@ -977,6 +1031,15 @@
       "card": "Shining Charizard",
       "set": "Neo Destiny",
       "number": "107/105",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-pok-mon-vs-097-141",
+      "stage": "inferno",
+      "card": "Lance's Charizard",
+      "set": "Pokémon VS",
+      "number": "097/141",
+      "japaneseOnly": true,
       "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
     },
     {

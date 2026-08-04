@@ -43,14 +43,18 @@ export const site = {
    * Drie totaal verschillende getallen, één bron. Wij tellen drukken: elke
    * afzonderlijke Engelse kaart is een eigen vinkje.
    *
+   * Plus de zeven ontwerpen die nooit in het Engels uitkwamen; die tellen in
+   * het Japans. Japanse versies van kaarten die óók in het Engels bestaan
+   * tellen niet mee: dat is hetzelfde ontwerp in een andere taal.
+   *
    * `snapshotDate` staat er omdat de lijst groeit met elke nieuwe set. Een
    * noemer "bevriezen" kan alleen als erbij staat per wanneer. Nieuwe sets
    * worden alleen toegevoegd na een publieke aankondiging, nooit stilletjes.
    */
   scope: {
-    label: 'every English printing of every card in the line',
+    label: 'every card in the line, in English wherever one exists',
     detail:
-      'Alternate arts, full arts, promos and reprints each count separately. Japanese-exclusive cards do not count.',
+      'Alternate arts, full arts, promos and reprints each count separately. Seven designs never got an English release, so those count in Japanese.',
     source: 'Bulbapedia',
     snapshotDate: '2026-08-03',
     /** De volledige lijst, gegenereerd uit de bron. Zie scripts/verify-totals.mjs. */

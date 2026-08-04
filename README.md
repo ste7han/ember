@@ -51,18 +51,23 @@ iedereen je tellingen aanvechten — en dan ben je precies de geloofwaardigheid
 kwijt waar het hele project op drijft.
 
 De site telt **drukken**: elke afzonderlijke Engelse kaart is een eigen vinkje.
-Alternate arts, full arts, promo's en herdrukken tellen dus los mee;
-Japans-exclusieve kaarten niet. Dat staat zichtbaar in de hero, de missie-sectie
-en de evolutie-sectie.
+Alternate arts, full arts, promo's en herdrukken tellen dus los mee.
 
-| Fase | Pokémon | Totaal |
-| --- | --- | --- |
-| Ember | Charmander | 49 |
-| Flame | Charmeleon | 38 |
-| Inferno | Charizard | 113 |
-| | | **200** |
+Daarbovenop tellen de **zeven ontwerpen die nooit in het Engels verschenen**.
+Die tellen in het Japans, want anders zou "elke kaart uit de lijn" niet waar
+zijn. Japanse versies van kaarten die óók in het Engels bestaan tellen níet mee:
+dat is hetzelfde ontwerp in een andere taal, en dan zou de lijst twee keer zo
+lang worden voor kaarten die je al hebt. Op `/#/checklist` staan die zeven
+gemarkeerd met **JP only**.
 
-**Deze getallen zijn geverifieerd op 3 augustus 2026** tegen de ruwe wikitext van
+| Fase | Pokémon | Engels | Alleen Japans | Totaal |
+| --- | --- | --- | --- | --- |
+| Ember | Charmander | 49 | 3 | 52 |
+| Flame | Charmeleon | 38 | 1 | 39 |
+| Inferno | Charizard | 113 | 3 | 116 |
+| | | 200 | 7 | **207** |
+
+**Deze getallen zijn geverifieerd op 4 augustus 2026** tegen de ruwe wikitext van
 de drie Bulbapedia-pagina's, en gekruist met Bulbapedia's eigen categorie-API. Ze
 staan vast. Reken ze zelf na:
 
@@ -81,14 +86,14 @@ beweegt maakt alle voortgang die je tot dan toe hebt laten zien waardeloos.
 
 ### De checklist
 
-`src/data/checklist.json` bevat alle 200 drukken, met set en kaartnummer, en
+`src/data/checklist.json` bevat alle 207 kaarten, met set en kaartnummer, en
 staat publiek op **`/#/checklist`**. Dat is het verschil tussen "wij zeggen 200"
 en "hier is de lijst, tel zelf".
 
-Op de homepage staat diezelfde lijst als **de muur** (`#wall`): 200 kaartvormige
-vakjes, één per druk. Leeg is een omtrek, binnengehaald licht op. Dat is dezelfde
+Op de homepage staat diezelfde lijst als **de muur** (`#wall`): 207 kaartvormige
+vakjes, één per kaart. Leeg is een omtrek, binnengehaald licht op. Dat is dezelfde
 informatie als de voortgangsbalk, maar dan zo dat je in één oogopslag ziet hoe
-groot de opgave is — en dat Inferno met 113 vakjes ruim de helft van het werk is.
+groot de opgave is — en dat Inferno met 116 vakjes ruim de helft van het werk is.
 
 De vakjes zijn vormgegeven als ruilkaart: rand, art window, tekstbalk. Let op
 dat dit **niet** het Pokémon-kaarttemplate is en dat ook nooit mag worden. Dat

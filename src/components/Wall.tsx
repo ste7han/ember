@@ -6,7 +6,7 @@ import { Section } from './ui/Section'
 
 /**
  * De missie als muur. Komt bewust direct na de missie-sectie: daar leg je uit
- * waar de 200 vandaan komt, hier zie je ze.
+ * waar het totaal vandaan komt, hier zie je ze.
  */
 export function Wall() {
   return (

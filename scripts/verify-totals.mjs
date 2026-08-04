@@ -10,9 +10,13 @@
  *   {{card list/card}}     één uniek kaartontwerp (illustratie + speltekst)
  *   {{card list/release}}  één druk van dat ontwerp, Engels en/of Japans
  *
- * Onze scope telt drukken, niet ontwerpen: een release-regel telt mee zodra hij
- * een `enset=` heeft. Japans-exclusieve regels hebben dat niet en vallen dus
- * vanzelf af.
+ * Onze scope telt drukken, niet ontwerpen: elke regel met een `enset=` telt mee.
+ *
+ * Daarbovenop tellen de ontwerpen die nóóit in het Engels zijn verschenen. Dat
+ * zijn er zeven, en zonder die zeven zou "elke kaart uit de lijn" niet waar
+ * zijn. Voor die kaarten nemen we de Japanse uitgave, want er is geen andere.
+ * Japanse versies van kaarten die óók in het Engels bestaan tellen niet mee:
+ * dat is hetzelfde ontwerp in een andere taal, geen kaart die je mist.
  */
 
 import { writeFileSync } from 'node:fs'
@@ -24,9 +28,9 @@ const UA = 'EmberProject/1.0 (card count verification; https://github.com/)'
 
 /** De drie fases, in dezelfde volgorde als collection.json. */
 const STAGES = [
-  { key: 'ember', pokemon: 'Charmander', expected: 49 },
-  { key: 'flame', pokemon: 'Charmeleon', expected: 38 },
-  { key: 'inferno', pokemon: 'Charizard', expected: 113 },
+  { key: 'ember', pokemon: 'Charmander', expected: 52 },
+  { key: 'flame', pokemon: 'Charmeleon', expected: 39 },
+  { key: 'inferno', pokemon: 'Charizard', expected: 116 },
 ]
 
 const wikiUrl = (p) =>
@@ -72,36 +76,68 @@ function parseCardName(line) {
   return null
 }
 
-/** Alle Engelse drukken op één overzichtspagina, in bronvolgorde. */
+/** Alles wat op één overzichtspagina binnen de scope valt, in bronvolgorde. */
 function parsePage(wikitext, stage) {
   const printings = []
   let cards = 0
   let current = null
+  let sawEnglish = false
+  let japanese = [] // Japanse uitgaven van de kaart waar we nu in zitten
+
+  /**
+   * Een kaart afsluiten. Kwam hij nooit in het Engels uit, dan nemen we zijn
+   * eerste Japanse uitgave op, anders zou het ontwerp helemaal ontbreken.
+   */
+  const closeCard = () => {
+    if (!current || sawEnglish || japanese.length === 0) return
+    printings.push({
+      stage: stage.key,
+      card: current,
+      set: japanese[0].set,
+      number: japanese[0].number,
+      japaneseOnly: true,
+    })
+  }
 
   for (const raw of wikitext.split('\n')) {
     const line = raw.trim()
 
     if (line.startsWith('{{card list/card|')) {
+      closeCard()
       const name = parseCardName(line)
       if (!name) throw new Error(`Onbekende cardname-vorm: ${line.slice(0, 90)}`)
       cards++
       current = name
+      sawEnglish = false
+      japanese = []
       continue
     }
 
     if (line.startsWith('{{card list/release') && current) {
-      const set = line.match(/\|enset=([^|}]+)/)
-      if (!set) continue // Japans-exclusieve druk, telt niet mee.
-      const number = line.match(/\|ennum=([^|}]+)/)
-      printings.push({
-        stage: stage.key,
-        card: current,
-        set: set[1].trim(),
-        number: number ? number[1].trim() : null,
-      })
+      const en = line.match(/\|enset=([^|}]+)/)
+      if (en) {
+        sawEnglish = true
+        const number = line.match(/\|ennum=([^|}]+)/)
+        printings.push({
+          stage: stage.key,
+          card: current,
+          set: en[1].trim(),
+          number: number ? number[1].trim() : null,
+        })
+        continue
+      }
+      const jp = line.match(/\|jpset=([^|}]+)/)
+      if (jp) {
+        const number = line.match(/\|jpnum=([^|}]+)/)
+        japanese.push({
+          set: jp[1].trim(),
+          number: number ? number[1].trim() : null,
+        })
+      }
     }
   }
 
+  closeCard()
   return { cards, printings }
 }
 
@@ -146,7 +182,7 @@ async function main() {
 
     console.log(
       `${ok ? 'OK  ' : 'FOUT'} ${stage.pokemon.padEnd(11)} ` +
-        `${String(printings.length).padStart(3)} Engelse drukken ` +
+        `${String(printings.length).padStart(3)} kaarten in scope ` +
         `(verwacht ${stage.expected})  ·  ` +
         `${cards} kaarten volgens onze parse, ${expectedCards} volgens de categorie`,
     )
@@ -156,7 +192,10 @@ async function main() {
   const total = all.length
   const unique = new Set(all.map((r) => r.id)).size
 
-  console.log(`\nTotaal: ${total} Engelse drukken over drie fases.`)
+  const jp = all.filter((r) => r.japaneseOnly).length
+  console.log(
+    `\nTotaal: ${total} kaarten over drie fases, waarvan ${jp} alleen in het Japans bestaan.`,
+  )
   if (unique !== total) {
     failed = true
     console.log(`FOUT: ${total - unique} dubbele id's — afvinken zou botsen.`)

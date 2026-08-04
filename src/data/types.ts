@@ -92,6 +92,11 @@ export type ChecklistRow = {
   set: string
   /** Kaartnummer, bv. "4/102". Null bij sets zonder nummering. */
   number: string | null
+  /**
+   * Waar: dit ontwerp is nooit in het Engels verschenen, dus telt de Japanse
+   * uitgave. Zonder die zeven zou "elke kaart uit de lijn" niet kloppen.
+   */
+  japaneseOnly?: boolean
   /** De Bulbapedia-pagina waar deze regel vandaan komt. */
   sourceUrl: string
 }

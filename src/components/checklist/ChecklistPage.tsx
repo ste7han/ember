@@ -8,7 +8,7 @@ import { Mosaic, MosaicLegend } from '../Mosaic'
 
 /**
  * De volledige noemer, uitgeschreven. Zolang deze lijst er niet staat is
- * "34 / 200" een bewering; met de lijst erbij is het een verwijzing naar iets
+ * "34 / 207" een bewering; met de lijst erbij is het een verwijzing naar iets
  * dat iedereen regel voor regel kan narekenen.
  *
  * Bewust niet in de nav, wel publiek bereikbaar — net als de trekkingstool.
@@ -127,6 +127,14 @@ export function ChecklistPage() {
                         <span className={have ? 'text-bone-100' : 'text-bone-400'}>
                           {row.card}
                           <span className="text-bone-500"> · {row.set}</span>
+                          {row.japaneseOnly && (
+                            <span
+                              title="Never released in English, so this one counts in Japanese"
+                              className="ml-2 rounded bg-ash-700 px-1.5 py-0.5 font-mono text-[0.6rem] text-bone-300"
+                            >
+                              JP only
+                            </span>
+                          )}
                         </span>
                         <span className="tnum ml-auto font-mono text-xs text-bone-500">
                           {row.number ?? '—'}

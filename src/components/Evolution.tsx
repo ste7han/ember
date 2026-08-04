@@ -18,8 +18,8 @@ export function Evolution() {
   const bars = useReveal<HTMLOListElement>()
 
   /**
-   * De mascotte evolueert elke derde van de collectie. Bij 200 kaarten is dat
-   * op 67 en op 134. Null zodra de laatste drempel gehaald is.
+   * De mascotte evolueert elke derde van de collectie. Bij 207 kaarten is dat
+   * op 69 en op 138. Null zodra de laatste drempel gehaald is.
    */
   const nextEvolutionAt =
     [1, 2]
