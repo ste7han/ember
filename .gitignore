@@ -25,3 +25,7 @@ dist-ssr
 
 # Privésleutel voor de verzendadressen. Nooit committen.
 secrets/
+
+# Lokale secrets voor wrangler dev
+.dev.vars
+.wrangler/

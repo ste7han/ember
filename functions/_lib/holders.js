@@ -1,9 +1,8 @@
 /**
  * Holders van één SPL-token ophalen en per eigenaar optellen.
  *
- * Bewust losgetrokken van de Vercel-handler, zodat dezelfde code lokaal in de
- * dev-server draait (zie vite.config.ts) en er dus niet één versie is die je
- * pas op productie voor het eerst echt uitprobeert.
+ * Losgetrokken van de handler, zodat je de telling apart kunt testen zonder
+ * een Worker te hoeven starten.
  *
  * Twee dingen die hier gebeuren en die je makkelijk vergeet:
  *

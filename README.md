@@ -13,12 +13,20 @@ npm run build    # productiebuild in dist/
 npm run preview  # bekijk de productiebuild lokaal
 ```
 
-Deploy op Vercel: importeer de repo, framework "Vite", verder niks instellen.
+Deploy op Cloudflare Pages:
+
+```bash
+npm run deploy        # bouwt en zet live
+npm run dev:full      # lokaal mét de API-endpoints en een lokale database
+```
+
+`npm run dev` serveert alleen de site — de endpoints hebben een Worker-omgeving
+nodig en draaien daar niet. Gebruik `dev:full` als je die wilt testen.
 
 ## De site bijwerken
 
 Je hoeft nooit code aan te raken. Alles zit in `src/data/`. Wijzig een bestand,
-commit, en Vercel zet het binnen een minuut live.
+commit, en `npm run deploy` zet het binnen een minuut live.
 
 ### `src/data/site.ts` — eenmalig invullen bij launch
 
@@ -306,19 +314,16 @@ wallet. Dat slot zit in Redis met `SET ... NX`, wat atomisch is: van tien mensen
 die op dezelfde seconde klikken slaagt er precies één. De rest krijgt te zien
 wie hem heeft en hoe lang nog.
 
-Instellen in Vercel — voeg een KV-database toe (Storage → KV), dan zet Vercel
-deze twee zelf klaar:
+Dit draait op **Cloudflare D1**. De database heet `ember` en is gekoppeld via
+`wrangler.toml`. Schema aanpassen of opnieuw toepassen:
 
-| Variabele | Wat |
-| --- | --- |
-| `KV_REST_API_URL` | endpoint van de database |
-| `KV_REST_API_TOKEN` | token, blijft aan de serverkant |
+```bash
+npm run db:remote     # productie
+npm run db:local      # lokale testdatabase
+```
 
-Een losse Upstash-database werkt ook; die gebruikt `UPSTASH_REDIS_REST_URL` en
-`UPSTASH_REDIS_REST_TOKEN`, en beide namen worden geaccepteerd.
-
-**Staan ze niet ingesteld, dan verdwijnt de reserveerknop** en werkt de rest van
-de sectie gewoon door. Zet ze dus in vóórdat je de eerste kaart aanbiedt.
+**Is de database niet bereikbaar, dan verdwijnt de reserveerknop** en werkt de
+rest van de sectie gewoon door.
 
 **Wat het niet oplost:** iemand kan nog steeds branden zonder te reserveren, en
 die transactie kan niemand tegenhouden. Daarom staat de regel zichtbaar op de
@@ -388,12 +393,14 @@ netjes dat het nog niet open is. Zet hem dus in vóórdat je ernaar linkt.
 ### Adressen uitlezen
 
 ```bash
-KV_REST_API_URL=... KV_REST_API_TOKEN=... node scripts/read-addresses.mjs
-node scripts/read-addresses.mjs 7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU
+npm run addresses                    # alle adressen
+npm run addresses -- <wallet>        # één wallet
+npm run addresses -- --local         # uit de lokale testdatabase
 ```
 
-Dit draait op jouw computer met jouw sleutel. Er staat geen inlogpagina op de
-site, dus er is ook niets te kraken.
+Dit draait op jouw computer met jouw sleutel, en praat met D1 via je bestaande
+wrangler-login — er komt geen apart token aan te pas. Er staat geen inlogpagina
+op de site, dus er is ook niets te kraken.
 
 ### Hoe het beveiligd is
 
@@ -416,8 +423,11 @@ bij die zegt wat je bewaart, waarom, hoe lang en hoe iemand het laat
 verwijderen. Er staat nu een korte uitleg op het formulier, maar dat is geen
 volwaardige verklaring.
 
-Verwijderen op verzoek doe je met `DEL ember:addr:<wallet>` in je KV-database.
-Wil je dat vaker gaan doen, dan is een klein scriptje handiger dan handwerk.
+Verwijderen op verzoek:
+
+```bash
+npx wrangler d1 execute ember --remote --command "delete from addresses where wallet='...'"
+```
 
 Ik ben geen jurist. Laat hier iemand naar kijken die dat wel is voordat het
 formulier live gaat.
@@ -434,14 +444,16 @@ opening, een graded hit, een complete set: het prijsveld is vrije tekst.
 
 De knop **Load holders** haalt de holderlijst op, telt saldo's per eigenaar bij
 elkaar op, gooit de uitgesloten wallets eruit en zet het resultaat in het
-tekstvak. Daarvoor moeten er drie environment variables staan in Vercel, onder
-*Settings → Environment Variables*:
+tekstvak. Daarvoor moeten er drie waarden ingesteld staan als Pages-secrets:
 
-| Variabele        | Wat |
-| ---------------- | --- |
-| `SOLANA_RPC_URL` | Endpoint van een RPC-provider, bv. Helius. De sleutel zit in deze URL en blijft aan de serverkant. |
-| `EMBER_MINT`     | Het mint address van de token. Staat bewust hier en niet in de query, zodat niemand dit endpoint kan gebruiken om op jouw quota willekeurige tokens op te vragen. |
-| `EMBER_EXCLUDE`  | Komma-gescheiden wallets die niet mogen meeloten. |
+```bash
+npx wrangler pages secret put SOLANA_RPC_URL   # endpoint van bv. Helius
+npx wrangler pages secret put EMBER_MINT       # het mint address
+npx wrangler pages secret put EMBER_EXCLUDE    # komma-gescheiden wallets
+```
+
+Het mint address staat bewust in een secret en niet in de query, zodat niemand
+dit endpoint kan gebruiken om op jouw quota willekeurige tokens op te vragen.
 
 **`EMBER_EXCLUDE` is niet optioneel.** Een holderlijst bevat ook de liquidity
 pool van pump.fun of Raydium, jullie eigen fee-wallet, en soms exchange-wallets.
@@ -449,11 +461,8 @@ Die hebben enorme saldo's. Laat je ze staan, dan wint je eigen LP de eerste
 trekking met een gewicht waar geen holder tegenop kan. De tool meldt het als er
 niets uitgesloten is — negeer die melding niet.
 
-Lokaal testen kan ook, de dev-server draait hetzelfde endpoint:
-
-```bash
-SOLANA_RPC_URL=... EMBER_MINT=... EMBER_EXCLUDE=... npm run dev
-```
+Lokaal testen kan met `npm run dev:full`; zet de waarden dan in een
+`.dev.vars`-bestand (staat in .gitignore).
 
 De lijst landt zichtbaar in het tekstvak, zodat je hem kunt controleren en
 aanpassen. Klik daarna **Save snapshot** om hem als bestand te bewaren. Doe dat
@@ -537,9 +546,10 @@ src/
   components/how/        alle regels uitgeschreven, op #/how
 scripts/
   verify-totals.mjs      telt de noemers opnieuw uit Bulbapedia
-api/
-  holders.js             /api/holders — holderlijst voor de trekkingstool
-  _holders.js            de logica erachter, ook gebruikt door de dev-server
+functions/
+  api/                   de vier endpoints, als Cloudflare Pages Functions
+  _lib/                  handtekeningcontrole en de holder-telling
+schema.sql               de twee tabellen in D1
 ```
 
 ## Let op

@@ -1,32 +1,28 @@
 /**
  * De opgeslagen verzendadressen lezen.
  *
- *   node scripts/read-addresses.mjs                 alle adressen
- *   node scripts/read-addresses.mjs 7xKXtg2CW87...  één wallet
+ *   npm run addresses                      alle adressen
+ *   npm run addresses -- 7xKXtg2CW87...    één wallet
+ *   npm run addresses -- --local           uit de lokale testdatabase
  *
  * Dit draait op jouw computer, met jouw privésleutel uit `secrets/`. De server
  * heeft die sleutel niet en heeft de adressen dus ook nooit kunnen lezen.
  *
- * Nodig in je shell (dezelfde als voor de site):
- *   KV_REST_API_URL=... KV_REST_API_TOKEN=... node scripts/read-addresses.mjs
+ * Er komt geen token aan te pas: het praat met D1 via je bestaande
+ * wrangler-login. Ben je uitgelogd, dan werkt dit script niet meer — precies
+ * zoals het hoort.
  */
 
+import { execFileSync } from 'node:child_process'
 import { readFileSync, existsSync } from 'node:fs'
 import { webcrypto } from 'node:crypto'
 
 const KEY_FILE = 'secrets/ember-private-key.txt'
-const PREFIX = 'ember:addr:'
 
-const url = process.env.KV_REST_API_URL ?? process.env.UPSTASH_REDIS_REST_URL
-const token =
-  process.env.KV_REST_API_TOKEN ?? process.env.UPSTASH_REDIS_REST_TOKEN
+const args = process.argv.slice(2)
+const local = args.includes('--local')
+const wallet = args.find((a) => !a.startsWith('--'))
 
-if (!url || !token) {
-  console.error(
-    'Zet KV_REST_API_URL en KV_REST_API_TOKEN in je shell voordat je dit draait.',
-  )
-  process.exit(1)
-}
 if (!existsSync(KEY_FILE)) {
   console.error(
     `Geen privésleutel gevonden in ${KEY_FILE}.\n` +
@@ -35,19 +31,26 @@ if (!existsSync(KEY_FILE)) {
   process.exit(1)
 }
 
-async function kv(command) {
-  const res = await fetch(url, {
-    method: 'POST',
-    headers: {
-      Authorization: `Bearer ${token}`,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(command),
-  })
-  if (!res.ok) throw new Error(`KV ${command[0]}: ${res.status}`)
-  const json = await res.json()
-  if (json.error) throw new Error(json.error)
-  return json.result
+/** Query via wrangler, zodat we geen aparte database-credentials nodig hebben. */
+function query(sql) {
+  const out = execFileSync(
+    'npx',
+    [
+      'wrangler',
+      'd1',
+      'execute',
+      'ember',
+      local ? '--local' : '--remote',
+      '--json',
+      '--command',
+      sql,
+    ],
+    { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] },
+  )
+  // Wrangler print soms een bannertje voor de JSON; pak vanaf de eerste [ of {.
+  const start = out.search(/[[{]/)
+  const parsed = JSON.parse(out.slice(start))
+  return parsed[0]?.results ?? []
 }
 
 const fromB64 = (s) => Uint8Array.from(Buffer.from(s, 'base64'))
@@ -82,26 +85,19 @@ async function open(envelope) {
   return new TextDecoder().decode(plain)
 }
 
-const wanted = process.argv[2]
-const keys = wanted ? [PREFIX + wanted] : ((await kv(['KEYS', `${PREFIX}*`])) ?? [])
+const where = wallet ? ` where wallet = '${wallet.replace(/'/g, "''")}'` : ''
+const rows = query(`select wallet, envelope, saved_at from addresses${where}`)
 
-if (keys.length === 0) {
+if (rows.length === 0) {
   console.log('Nog geen adressen opgeslagen.')
   process.exit(0)
 }
 
-for (const key of keys) {
-  const wallet = key.slice(PREFIX.length)
-  const raw = await kv(['GET', key])
-  if (!raw) {
-    console.log(`\n${wallet}\n  (niets gevonden)`)
-    continue
-  }
-  const record = typeof raw === 'string' ? JSON.parse(raw) : raw
+for (const row of rows) {
+  console.log(`\n${row.wallet}`)
+  console.log(`  opgeslagen: ${row.saved_at}`)
   try {
-    const address = await open(record.envelope)
-    console.log(`\n${wallet}`)
-    console.log(`  opgeslagen: ${record.savedAt}`)
+    const address = await open(JSON.parse(row.envelope))
     console.log(
       address
         .split('\n')
@@ -109,7 +105,7 @@ for (const key of keys) {
         .join('\n'),
     )
   } catch {
-    console.log(`\n${wallet}\n  KON NIET ONTSLEUTELEN — verkeerde sleutel?`)
+    console.log('  KON NIET ONTSLEUTELEN — verkeerde sleutel?')
   }
 }
 console.log()

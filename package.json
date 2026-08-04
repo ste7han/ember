@@ -9,7 +9,12 @@
     "lint": "oxlint",
     "preview": "vite preview",
     "verify-totals": "node scripts/verify-totals.mjs",
-    "build-checklist": "node scripts/verify-totals.mjs --write"
+    "build-checklist": "node scripts/verify-totals.mjs --write",
+    "dev:full": "npm run build && wrangler pages dev dist --port 5174",
+    "db:local": "wrangler d1 execute ember --local --file schema.sql",
+    "db:remote": "wrangler d1 execute ember --remote --file schema.sql",
+    "addresses": "node scripts/read-addresses.mjs",
+    "deploy": "npm run build && wrangler pages deploy dist --project-name ember"
   },
   "dependencies": {
     "react": "^19.2.8",

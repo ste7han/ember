@@ -1,5 +1,3 @@
-import { createPublicKey, verify } from 'node:crypto'
-
 /**
  * Controleren dat iemand écht over een wallet beschikt.
  *
@@ -8,9 +6,9 @@ import { createPublicKey, verify } from 'node:crypto'
  * wint. Een ondertekend bericht sluit dat af — de wallet moet meewerken, en
  * dat kan alleen wie de sleutel heeft.
  *
- * Geen libraries: base58 is dertig regels en ed25519 zit sinds Node 18 in
- * `node:crypto`. Elke dependency hier is er één die je moet vertrouwen met de
- * beveiliging van je adressenlijst.
+ * Alles via WebCrypto, dus dit draait ongewijzigd in een Cloudflare Worker,
+ * in Node en in de browser. De vorige versie leunde op `node:crypto` en was
+ * daarmee aan één omgeving gebonden.
  */
 
 const ALPHABET = '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz'
@@ -34,7 +32,7 @@ export function base58Decode(str) {
     }
   }
 
-  // Voorloopnullen in base58 zijn '1'-tekens en gaan verloren in het rekenwerk.
+  // Voorloopnullen zijn in base58 '1'-tekens en gaan verloren in het rekenwerk.
   for (const ch of str) {
     if (ch !== '1') break
     bytes.push(0)
@@ -43,28 +41,25 @@ export function base58Decode(str) {
   return Uint8Array.from(bytes.reverse())
 }
 
-/**
- * Een kale ed25519-sleutel is 32 bytes; `createPublicKey` wil DER. Die
- * omhulling is voor ed25519 altijd exact dezelfde twaalf bytes, dus die
- * plakken we er zelf voor.
- */
-const SPKI_PREFIX = Buffer.from('302a300506032b6570032100', 'hex')
+const fromB64 = (s) => Uint8Array.from(atob(s), (c) => c.charCodeAt(0))
 
-export function verifySignature(walletBase58, message, signatureBase64) {
+/**
+ * Een Solana-adres ís de publieke ed25519-sleutel, in base58. WebCrypto neemt
+ * die 32 bytes rechtstreeks aan als 'raw'.
+ */
+export async function verifySignature(walletBase58, message, signatureBase64) {
   const raw = base58Decode(walletBase58)
   if (raw.length !== 32) throw new Error('Geen geldig Solana-adres')
 
-  const key = createPublicKey({
-    key: Buffer.concat([SPKI_PREFIX, Buffer.from(raw)]),
-    format: 'der',
-    type: 'spki',
-  })
+  const key = await crypto.subtle.importKey('raw', raw, { name: 'Ed25519' }, false, [
+    'verify',
+  ])
 
-  return verify(
-    null,
-    Buffer.from(message, 'utf8'),
+  return crypto.subtle.verify(
+    { name: 'Ed25519' },
     key,
-    Buffer.from(signatureBase64, 'base64'),
+    fromB64(signatureBase64),
+    new TextEncoder().encode(message),
   )
 }
 
@@ -72,6 +67,9 @@ export function verifySignature(walletBase58, message, signatureBase64) {
  * Het bericht dat ondertekend moet worden. De wallet staat erin zodat een
  * handtekening niet voor een andere wallet hergebruikt kan worden, en de tijd
  * zodat een onderschepte handtekening niet maanden later nog werkt.
+ *
+ * Wijzig je deze tekst, wijzig hem dan ook in ShippingPage.tsx — wijkt er één
+ * teken af, dan mislukt elke controle.
  */
 export const signingMessage = (wallet, issuedAt) =>
   [
@@ -91,3 +89,18 @@ export function isFresh(issuedAt, maxAgeMs = 10 * 60 * 1000) {
   const age = Date.now() - t
   return age > -60_000 && age < maxAgeMs
 }
+
+export const isSafeId = (s) =>
+  typeof s === 'string' && s.length > 0 && s.length <= 64 && /^[\w-]+$/.test(s)
+
+export const isSafeWallet = (s) =>
+  typeof s === 'string' && /^[1-9A-HJ-NP-Za-km-z]{32,44}$/.test(s)
+
+/** Kleine hulpjes zodat elke functie hetzelfde antwoordt. */
+export const json = (body, status = 200, headers = {}) =>
+  new Response(JSON.stringify(body), {
+    status,
+    headers: { 'Content-Type': 'application/json', ...headers },
+  })
+
+export const RESERVE_TTL_MS = 15 * 60 * 1000

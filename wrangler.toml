@@ -1,0 +1,17 @@
+name = "ember"
+compatibility_date = "2026-08-01"
+pages_build_output_dir = "dist"
+
+# De database achter de reserveringen en de verzendadressen.
+# In de functies bereikbaar als `env.DB`.
+[[d1_databases]]
+binding = "DB"
+database_name = "ember"
+database_id = "6c078cf2-e7b6-495a-b4eb-be9fab9d85a9"
+
+# Niet-geheime instellingen. De RPC-sleutel en het mint address zijn dat wél en
+# horen dus niet hier, maar als secret:
+#   npx wrangler pages secret put SOLANA_RPC_URL
+#   npx wrangler pages secret put EMBER_MINT
+#   npx wrangler pages secret put EMBER_EXCLUDE
+[vars]
