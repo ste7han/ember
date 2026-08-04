@@ -254,6 +254,22 @@ export function DrawPage() {
               means anyone watching can check the result afterwards.
             </p>
 
+            {/*
+              De tool staat open omdat kijkers onze uitslag moeten kunnen
+              overdoen. Daar hoort bij dat iemand er ook een eigen uitslag mee
+              kan draaien, dus zeggen we hardop wat wel en niet telt.
+            */}
+            <p className="mt-4 max-w-2xl rounded-xl border border-ash-700 bg-ash-900/60 p-4 text-sm leading-relaxed text-bone-300">
+              <strong className="font-semibold text-bone-100">
+                This page is open to everyone on purpose.
+              </strong>{' '}
+              It's how you check our draws: same snapshot, same seed, same
+              winner. It also means anyone can spin one here, so a result only
+              counts once it's published on the {site.name} site with the
+              transaction that sent the card. A screenshot of this screen proves
+              nothing on its own.
+            </p>
+
             <div className="mt-10 grid gap-8 lg:grid-cols-[1.3fr_1fr]">
               <div className="space-y-6">
                 <Field
