@@ -109,7 +109,6 @@ function Engines() {
         <p className="mt-3 text-sm leading-relaxed text-bone-300">
           Packs opened on camera. Everything we pull outside the line goes to
           holders, drawn in giveaways or claimable by burning ${site.ticker}.
-          This half is yours.
         </p>
         <p className="tnum mt-4 font-mono text-xs text-bone-500">
           {num(collection.rips.packsOpened)} packs opened
