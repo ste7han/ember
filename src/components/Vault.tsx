@@ -44,6 +44,11 @@ function PickupCard({ pickup }: { pickup: Pickup }) {
           {shortDate(pickup.date)}
           {pickup.paidUsd !== undefined && ` · ${usd(pickup.paidUsd)}`}
         </p>
+        {pickup.note && (
+          <p className="mt-2 text-xs leading-relaxed text-bone-400">
+            {pickup.note}
+          </p>
+        )}
       </figcaption>
     </figure>
   )
@@ -57,7 +62,7 @@ export function Vault() {
       id="vault"
       eyebrow="The vault"
       title="Every card we own"
-      lede="Proof, not promises. Each card below is a real purchase paid for with creator fees, crossed off a public checklist. If it isn't photographed here, it doesn't count."
+      lede="Proof, not promises. Every card here is one we physically hold, photographed by us and crossed off a public checklist. Almost all of them get bought with creator fees; where one didn't, it says so on the card. If it isn't photographed here, it doesn't count."
       className="bg-ash-900/30"
     >
       {collection.recentPickups.length === 0 ? (

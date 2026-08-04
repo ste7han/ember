@@ -5,8 +5,17 @@ export type Pickup = {
   date: string
   /** Bij welke fase deze aanwinst hoort. */
   stage: StageKey
-  /** Betaald bedrag in USD. */
+  /**
+   * Betaald bedrag in USD. Laat weg als de kaart niet met fees gekocht is —
+   * `$0` leest als "gratis gescoord" en dat is iets anders.
+   */
   paidUsd?: number
+  /**
+   * Eén regel herkomst, voor het geval die niet vanzelfsprekend is. De sectie
+   * belooft dat elke kaart met creator fees betaald is; komt er een kaart langs
+   * die daar niet onder valt, dan staat dat hier en niet in de kleine lettertjes.
+   */
+  note?: string
   /** Pad naar foto in /public/vault/, bv. "/vault/rocket-68.jpg". Leeg = placeholder. */
   image?: string
 }

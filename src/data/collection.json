@@ -1,16 +1,16 @@
 {
-  "lastUpdated": "2026-08-03",
+  "lastUpdated": "2026-08-04",
   "currentSet": 1,
   "setsAwarded": 0,
   "feesSpentUsd": 0,
-  "weeklyDelta": 0,
-  "ownedIds": [],
+  "weeklyDelta": 1,
+  "ownedIds": ["flame-phantasmal-flames-012-094"],
   "stages": [
     {
       "key": "ember",
       "stage": "Ember",
       "pokemon": "Charmander",
-      "blurb": "The cheap end. Charmander is never a chase card, so this bar moves fastest — not because we prioritise it, but because it's the least expensive."
+      "blurb": "The cheap end. Charmander is never a chase card, so this bar tends to move fastest. Not because we prioritise it, but because it costs the least."
     },
     {
       "key": "flame",
@@ -22,10 +22,18 @@
       "key": "inferno",
       "stage": "Inferno",
       "pokemon": "Charizard",
-      "blurb": "The wall. Every card here is somebody's grail, and 113 of the 200 sit in this one stage."
+      "blurb": "The wall. Every card here is somebody's grail, and 116 of the 207 sit in this one stage."
     }
   ],
-  "recentPickups": [],
+  "recentPickups": [
+    {
+      "label": "Charmeleon · Phantasmal Flames 012/094",
+      "date": "2026-08-04",
+      "stage": "flame",
+      "image": "flame-phantasmal-flames-012-094",
+      "note": "Out of my own binder, not bought with fees. The first one on the board had to come from somewhere."
+    }
+  ],
   "rips": {
     "spentUsd": 0,
     "packsOpened": 0
