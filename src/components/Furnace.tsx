@@ -264,9 +264,32 @@ export function Furnace() {
     <Section
       id="furnace"
       eyebrow="The furnace"
-      title="Burn to claim"
-      lede="Spare cards — duplicates, and anything we pull outside the line. Burn the listed amount and it's yours. Some have a clock; when it runs out they go to the draw instead."
+      title={
+        <>
+          Ember <span className="text-flame">costs you something.</span>
+        </>
+      }
+      lede="Spare cards from the packs — duplicates, and anything outside the line. Burn the listed amount and the card is yours. Some have a clock; when it runs out they go to the draw instead."
     >
+      {/*
+        De aanval waar de token naar vernoemd is heeft een prijs, en die staat
+        letterlijk op de kaart. Dat is geen woordspeling achteraf maar precies
+        hetzelfde mechanisme: je levert iets in om iets te krijgen.
+      */}
+      <blockquote className="mb-10 max-w-2xl border-l-2 border-ember-600 pl-5">
+        <p className="font-display text-lg leading-snug font-bold text-bone-100 sm:text-xl">
+          “Discard 1 Fire Energy card attached to Charmander in order to use
+          this attack.”
+        </p>
+        <footer className="mt-2 font-mono text-xs text-bone-500">
+          Ember · Charmander, Base Set 46/102 · 30 damage
+        </footer>
+        <p className="mt-4 text-sm leading-relaxed text-bone-300">
+          The move this token is named after has always had a cost. You give
+          something up to make it work. Same here — burn ${site.ticker}, take a
+          card off the pile.
+        </p>
+      </blockquote>
       {furnace.length === 0 ? (
         <div className="rounded-2xl border border-dashed border-ash-700 px-6 py-16 text-center">
           <Flame className="mx-auto h-8 w-8 opacity-40" />

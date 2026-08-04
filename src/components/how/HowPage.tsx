@@ -136,6 +136,11 @@ export function HowPage() {
 
         <Block title="The furnace">
           <p>
+            On the 1999 Base Set card, Ember reads: “Discard 1 Fire Energy card
+            attached to Charmander in order to use this attack.” The move costs
+            you something. That's the whole idea here too.
+          </p>
+          <p>
             Spare cards — duplicates, and anything we pull that isn't part of the
             line — can be claimed by burning ${site.ticker}. Send the listed
             amount to the burn address, then send us the transaction with your
