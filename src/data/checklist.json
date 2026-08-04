@@ -1,0 +1,1607 @@
+{
+  "snapshotDate": "2026-08-03",
+  "source": "Bulbapedia",
+  "note": "Gegenereerd door scripts/verify-totals.mjs. Niet met de hand bewerken.",
+  "rows": [
+    {
+      "id": "ember-base-set-46-102",
+      "stage": "ember",
+      "card": "Charmander",
+      "set": "Base Set",
+      "number": "46/102",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmander_(TCG)"
+    },
+    {
+      "id": "ember-base-set-2-69-130",
+      "stage": "ember",
+      "card": "Charmander",
+      "set": "Base Set 2",
+      "number": "69/130",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmander_(TCG)"
+    },
+    {
+      "id": "ember-legendary-collection-70-110",
+      "stage": "ember",
+      "card": "Charmander",
+      "set": "Legendary Collection",
+      "number": "70/110",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmander_(TCG)"
+    },
+    {
+      "id": "ember-stormfront-101-100",
+      "stage": "ember",
+      "card": "Charmander",
+      "set": "Stormfront",
+      "number": "101/100",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmander_(TCG)"
+    },
+    {
+      "id": "ember-charizard-ho-oh-ex-deck-001-034",
+      "stage": "ember",
+      "card": "Charmander",
+      "set": "Charizard & Ho-Oh ex Deck",
+      "number": "001/034",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmander_(TCG)"
+    },
+    {
+      "id": "ember-team-rocket-50-82",
+      "stage": "ember",
+      "card": "Charmander",
+      "set": "Team Rocket",
+      "number": "50/82",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmander_(TCG)"
+    },
+    {
+      "id": "ember-expedition-base-set-97-165",
+      "stage": "ember",
+      "card": "Charmander",
+      "set": "Expedition Base Set",
+      "number": "97/165",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmander_(TCG)"
+    },
+    {
+      "id": "ember-expedition-base-set-98-165",
+      "stage": "ember",
+      "card": "Charmander",
+      "set": "Expedition Base Set",
+      "number": "98/165",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmander_(TCG)"
+    },
+    {
+      "id": "ember-ex-dragon-98-97",
+      "stage": "ember",
+      "card": "Charmander",
+      "set": "EX Dragon",
+      "number": "98/97",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmander_(TCG)"
+    },
+    {
+      "id": "ember-ex-firered-leafgreen-113-112",
+      "stage": "ember",
+      "card": "Charmander",
+      "set": "EX FireRed & LeafGreen",
+      "number": "113/112",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmander_(TCG)"
+    },
+    {
+      "id": "ember-ex-firered-leafgreen-57-112",
+      "stage": "ember",
+      "card": "Charmander",
+      "set": "EX FireRed & LeafGreen",
+      "number": "57/112",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmander_(TCG)"
+    },
+    {
+      "id": "ember-ex-firered-leafgreen-58-112",
+      "stage": "ember",
+      "card": "Charmander",
+      "set": "EX FireRed & LeafGreen",
+      "number": "58/112",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmander_(TCG)"
+    },
+    {
+      "id": "ember-minun-half-deck-2-12",
+      "stage": "ember",
+      "card": "Charmander",
+      "set": "Minun Half Deck",
+      "number": "2/12",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmander_(TCG)"
+    },
+    {
+      "id": "ember-ex-crystal-guardians-48-100",
+      "stage": "ember",
+      "card": "Charmander",
+      "set": "EX Crystal Guardians",
+      "number": "48/100",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmander_(TCG)"
+    },
+    {
+      "id": "ember-ex-crystal-guardians-49-100",
+      "stage": "ember",
+      "card": "Charmander δ",
+      "set": "EX Crystal Guardians",
+      "number": "49/100",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmander_(TCG)"
+    },
+    {
+      "id": "ember-pop-series-5-10-17",
+      "stage": "ember",
+      "card": "Charmander δ",
+      "set": "POP Series 5",
+      "number": "10/17",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmander_(TCG)"
+    },
+    {
+      "id": "ember-ex-power-keepers-48-108",
+      "stage": "ember",
+      "card": "Charmander",
+      "set": "EX Power Keepers",
+      "number": "48/108",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmander_(TCG)"
+    },
+    {
+      "id": "ember-secret-wonders-82-132",
+      "stage": "ember",
+      "card": "Charmander",
+      "set": "Secret Wonders",
+      "number": "82/132",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmander_(TCG)"
+    },
+    {
+      "id": "ember-arceus-59-99",
+      "stage": "ember",
+      "card": "Charmander",
+      "set": "Arceus",
+      "number": "59/99",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmander_(TCG)"
+    },
+    {
+      "id": "ember-boundaries-crossed-18-149",
+      "stage": "ember",
+      "card": "Charmander",
+      "set": "Boundaries Crossed",
+      "number": "18/149",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmander_(TCG)"
+    },
+    {
+      "id": "ember-legendary-treasures-17-113",
+      "stage": "ember",
+      "card": "Charmander",
+      "set": "Legendary Treasures",
+      "number": "17/113",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmander_(TCG)"
+    },
+    {
+      "id": "ember-generations-rc3-rc32",
+      "stage": "ember",
+      "card": "Charmander",
+      "set": "Generations",
+      "number": "RC3/RC32",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmander_(TCG)"
+    },
+    {
+      "id": "ember-evolutions-9-108",
+      "stage": "ember",
+      "card": "Charmander",
+      "set": "Evolutions",
+      "number": "9/108",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmander_(TCG)"
+    },
+    {
+      "id": "ember-burning-shadows-18-147",
+      "stage": "ember",
+      "card": "Charmander",
+      "set": "Burning Shadows",
+      "number": "18/147",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmander_(TCG)"
+    },
+    {
+      "id": "ember-yellow-a-alternate-cards-18a-147",
+      "stage": "ember",
+      "card": "Charmander",
+      "set": "Yellow A Alternate cards",
+      "number": "18a/147",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmander_(TCG)"
+    },
+    {
+      "id": "ember-mcdonald-s-collection-2021-9-25",
+      "stage": "ember",
+      "card": "Charmander",
+      "set": "McDonald's Collection 2021",
+      "number": "9/25",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmander_(TCG)"
+    },
+    {
+      "id": "ember-dragon-majesty-1-70",
+      "stage": "ember",
+      "card": "Charmander",
+      "set": "Dragon Majesty",
+      "number": "1/70",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmander_(TCG)"
+    },
+    {
+      "id": "ember-hidden-fates-sv6-sv94",
+      "stage": "ember",
+      "card": "Charmander",
+      "set": "Hidden Fates",
+      "number": "SV6/SV94",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmander_(TCG)"
+    },
+    {
+      "id": "ember-team-up-11-181",
+      "stage": "ember",
+      "card": "Charmander",
+      "set": "Team Up",
+      "number": "11/181",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmander_(TCG)"
+    },
+    {
+      "id": "ember-team-up-12-181",
+      "stage": "ember",
+      "card": "Charmander",
+      "set": "Team Up",
+      "number": "12/181",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmander_(TCG)"
+    },
+    {
+      "id": "ember-hidden-fates-7-68",
+      "stage": "ember",
+      "card": "Charmander",
+      "set": "Hidden Fates",
+      "number": "7/68",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmander_(TCG)"
+    },
+    {
+      "id": "ember-detective-pikachu-4-18",
+      "stage": "ember",
+      "card": "Charmander",
+      "set": "Detective Pikachu",
+      "number": "4/18",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmander_(TCG)"
+    },
+    {
+      "id": "ember-vivid-voltage-023-185",
+      "stage": "ember",
+      "card": "Charmander",
+      "set": "Vivid Voltage",
+      "number": "023/185",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmander_(TCG)"
+    },
+    {
+      "id": "ember-swsh-black-star-promos-swsh092",
+      "stage": "ember",
+      "card": "Charmander",
+      "set": "SWSH Black Star Promos",
+      "number": "SWSH092",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmander_(TCG)"
+    },
+    {
+      "id": "ember-pok-mon-go-008-078",
+      "stage": "ember",
+      "card": "Charmander",
+      "set": "Pokémon GO",
+      "number": "008/078",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmander_(TCG)"
+    },
+    {
+      "id": "ember-swsh-black-star-promos-swsh232",
+      "stage": "ember",
+      "card": "Charmander",
+      "set": "SWSH Black Star Promos",
+      "number": "SWSH232",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmander_(TCG)"
+    },
+    {
+      "id": "ember-obsidian-flames-026-197",
+      "stage": "ember",
+      "card": "Charmander",
+      "set": "Obsidian Flames",
+      "number": "026/197",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmander_(TCG)"
+    },
+    {
+      "id": "ember-svp-black-star-promos-044",
+      "stage": "ember",
+      "card": "Charmander",
+      "set": "SVP Black Star Promos",
+      "number": "044",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmander_(TCG)"
+    },
+    {
+      "id": "ember-151-004-165",
+      "stage": "ember",
+      "card": "Charmander",
+      "set": "151",
+      "number": "004/165",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmander_(TCG)"
+    },
+    {
+      "id": "ember-151-168-165",
+      "stage": "ember",
+      "card": "Charmander",
+      "set": "151",
+      "number": "168/165",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmander_(TCG)"
+    },
+    {
+      "id": "ember-paldean-fates-007-091",
+      "stage": "ember",
+      "card": "Charmander",
+      "set": "Paldean Fates",
+      "number": "007/091",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmander_(TCG)"
+    },
+    {
+      "id": "ember-paldean-fates-109-091",
+      "stage": "ember",
+      "card": "Charmander",
+      "set": "Paldean Fates",
+      "number": "109/091",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmander_(TCG)"
+    },
+    {
+      "id": "ember-svp-black-star-promos-047",
+      "stage": "ember",
+      "card": "Charmander",
+      "set": "SVP Black Star Promos",
+      "number": "047",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmander_(TCG)"
+    },
+    {
+      "id": "ember-my-first-battle-charmander",
+      "stage": "ember",
+      "card": "Charmander",
+      "set": "My First Battle",
+      "number": null,
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmander_(TCG)"
+    },
+    {
+      "id": "ember-phantasmal-flames-011-094",
+      "stage": "ember",
+      "card": "Charmander",
+      "set": "Phantasmal Flames",
+      "number": "011/094",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmander_(TCG)"
+    },
+    {
+      "id": "ember-ascended-heroes-020-217",
+      "stage": "ember",
+      "card": "Charmander",
+      "set": "Ascended Heroes",
+      "number": "020/217",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmander_(TCG)"
+    },
+    {
+      "id": "ember-mep-black-star-promos-038",
+      "stage": "ember",
+      "card": "Charmander",
+      "set": "MEP Black Star Promos",
+      "number": "038",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmander_(TCG)"
+    },
+    {
+      "id": "ember-gym-heroes-61-132",
+      "stage": "ember",
+      "card": "Blaine's Charmander",
+      "set": "Gym Heroes",
+      "number": "61/132",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmander_(TCG)"
+    },
+    {
+      "id": "ember-gym-challenge-60-132",
+      "stage": "ember",
+      "card": "Blaine's Charmander",
+      "set": "Gym Challenge",
+      "number": "60/132",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmander_(TCG)"
+    },
+    {
+      "id": "flame-base-set-24-102",
+      "stage": "flame",
+      "card": "Charmeleon",
+      "set": "Base Set",
+      "number": "24/102",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmeleon_(TCG)"
+    },
+    {
+      "id": "flame-base-set-2-35-130",
+      "stage": "flame",
+      "card": "Charmeleon",
+      "set": "Base Set 2",
+      "number": "35/130",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmeleon_(TCG)"
+    },
+    {
+      "id": "flame-legendary-collection-37-110",
+      "stage": "flame",
+      "card": "Charmeleon",
+      "set": "Legendary Collection",
+      "number": "37/110",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmeleon_(TCG)"
+    },
+    {
+      "id": "flame-stormfront-102-100",
+      "stage": "flame",
+      "card": "Charmeleon",
+      "set": "Stormfront",
+      "number": "102/100",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmeleon_(TCG)"
+    },
+    {
+      "id": "flame-charizard-ho-oh-ex-deck-002-034",
+      "stage": "flame",
+      "card": "Charmeleon",
+      "set": "Charizard & Ho-Oh ex Deck",
+      "number": "002/034",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmeleon_(TCG)"
+    },
+    {
+      "id": "flame-expedition-base-set-73-165",
+      "stage": "flame",
+      "card": "Charmeleon",
+      "set": "Expedition Base Set",
+      "number": "73/165",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmeleon_(TCG)"
+    },
+    {
+      "id": "flame-ex-dragon-99-97",
+      "stage": "flame",
+      "card": "Charmeleon",
+      "set": "EX Dragon",
+      "number": "99/97",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmeleon_(TCG)"
+    },
+    {
+      "id": "flame-ex-team-rocket-returns-110-109",
+      "stage": "flame",
+      "card": "Charmeleon",
+      "set": "EX Team Rocket Returns",
+      "number": "110/109",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmeleon_(TCG)"
+    },
+    {
+      "id": "flame-ex-firered-leafgreen-31-112",
+      "stage": "flame",
+      "card": "Charmeleon",
+      "set": "EX FireRed & LeafGreen",
+      "number": "31/112",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmeleon_(TCG)"
+    },
+    {
+      "id": "flame-minun-half-deck-3-12",
+      "stage": "flame",
+      "card": "Charmeleon",
+      "set": "Minun Half Deck",
+      "number": "3/12",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmeleon_(TCG)"
+    },
+    {
+      "id": "flame-ex-crystal-guardians-29-100",
+      "stage": "flame",
+      "card": "Charmeleon",
+      "set": "EX Crystal Guardians",
+      "number": "29/100",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmeleon_(TCG)"
+    },
+    {
+      "id": "flame-ex-crystal-guardians-30-100",
+      "stage": "flame",
+      "card": "Charmeleon δ",
+      "set": "EX Crystal Guardians",
+      "number": "30/100",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmeleon_(TCG)"
+    },
+    {
+      "id": "flame-pop-series-5-5-17",
+      "stage": "flame",
+      "card": "Charmeleon δ",
+      "set": "POP Series 5",
+      "number": "5/17",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmeleon_(TCG)"
+    },
+    {
+      "id": "flame-ex-power-keepers-28-108",
+      "stage": "flame",
+      "card": "Charmeleon",
+      "set": "EX Power Keepers",
+      "number": "28/108",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmeleon_(TCG)"
+    },
+    {
+      "id": "flame-secret-wonders-46-132",
+      "stage": "flame",
+      "card": "Charmeleon",
+      "set": "Secret Wonders",
+      "number": "46/132",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmeleon_(TCG)"
+    },
+    {
+      "id": "flame-arceus-35-99",
+      "stage": "flame",
+      "card": "Charmeleon",
+      "set": "Arceus",
+      "number": "35/99",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmeleon_(TCG)"
+    },
+    {
+      "id": "flame-boundaries-crossed-19-149",
+      "stage": "flame",
+      "card": "Charmeleon",
+      "set": "Boundaries Crossed",
+      "number": "19/149",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmeleon_(TCG)"
+    },
+    {
+      "id": "flame-legendary-treasures-18-113",
+      "stage": "flame",
+      "card": "Charmeleon",
+      "set": "Legendary Treasures",
+      "number": "18/113",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmeleon_(TCG)"
+    },
+    {
+      "id": "flame-generations-rc4-rc32",
+      "stage": "flame",
+      "card": "Charmeleon",
+      "set": "Generations",
+      "number": "RC4/RC32",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmeleon_(TCG)"
+    },
+    {
+      "id": "flame-evolutions-10-108",
+      "stage": "flame",
+      "card": "Charmeleon",
+      "set": "Evolutions",
+      "number": "10/108",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmeleon_(TCG)"
+    },
+    {
+      "id": "flame-burning-shadows-19-147",
+      "stage": "flame",
+      "card": "Charmeleon",
+      "set": "Burning Shadows",
+      "number": "19/147",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmeleon_(TCG)"
+    },
+    {
+      "id": "flame-dragon-majesty-2-70",
+      "stage": "flame",
+      "card": "Charmeleon",
+      "set": "Dragon Majesty",
+      "number": "2/70",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmeleon_(TCG)"
+    },
+    {
+      "id": "flame-hidden-fates-sv7-sv94",
+      "stage": "flame",
+      "card": "Charmeleon",
+      "set": "Hidden Fates",
+      "number": "SV7/SV94",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmeleon_(TCG)"
+    },
+    {
+      "id": "flame-team-up-13-181",
+      "stage": "flame",
+      "card": "Charmeleon",
+      "set": "Team Up",
+      "number": "13/181",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmeleon_(TCG)"
+    },
+    {
+      "id": "flame-hidden-fates-8-68",
+      "stage": "flame",
+      "card": "Charmeleon",
+      "set": "Hidden Fates",
+      "number": "8/68",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmeleon_(TCG)"
+    },
+    {
+      "id": "flame-vivid-voltage-024-185",
+      "stage": "flame",
+      "card": "Charmeleon",
+      "set": "Vivid Voltage",
+      "number": "024/185",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmeleon_(TCG)"
+    },
+    {
+      "id": "flame-pok-mon-go-009-078",
+      "stage": "flame",
+      "card": "Charmeleon",
+      "set": "Pokémon GO",
+      "number": "009/078",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmeleon_(TCG)"
+    },
+    {
+      "id": "flame-obsidian-flames-027-197",
+      "stage": "flame",
+      "card": "Charmeleon",
+      "set": "Obsidian Flames",
+      "number": "027/197",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmeleon_(TCG)"
+    },
+    {
+      "id": "flame-151-005-165",
+      "stage": "flame",
+      "card": "Charmeleon",
+      "set": "151",
+      "number": "005/165",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmeleon_(TCG)"
+    },
+    {
+      "id": "flame-151-169-165",
+      "stage": "flame",
+      "card": "Charmeleon",
+      "set": "151",
+      "number": "169/165",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmeleon_(TCG)"
+    },
+    {
+      "id": "flame-my-first-battle-charmeleon",
+      "stage": "flame",
+      "card": "Charmeleon",
+      "set": "My First Battle",
+      "number": null,
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmeleon_(TCG)"
+    },
+    {
+      "id": "flame-paldean-fates-008-091",
+      "stage": "flame",
+      "card": "Charmeleon",
+      "set": "Paldean Fates",
+      "number": "008/091",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmeleon_(TCG)"
+    },
+    {
+      "id": "flame-paldean-fates-110-091",
+      "stage": "flame",
+      "card": "Charmeleon",
+      "set": "Paldean Fates",
+      "number": "110/091",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmeleon_(TCG)"
+    },
+    {
+      "id": "flame-phantasmal-flames-012-094",
+      "stage": "flame",
+      "card": "Charmeleon",
+      "set": "Phantasmal Flames",
+      "number": "012/094",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmeleon_(TCG)"
+    },
+    {
+      "id": "flame-mep-black-star-promos-079",
+      "stage": "flame",
+      "card": "Charmeleon",
+      "set": "MEP Black Star Promos",
+      "number": "079",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmeleon_(TCG)"
+    },
+    {
+      "id": "flame-ascended-heroes-021-217",
+      "stage": "flame",
+      "card": "Charmeleon",
+      "set": "Ascended Heroes",
+      "number": "021/217",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmeleon_(TCG)"
+    },
+    {
+      "id": "flame-team-rocket-32-82",
+      "stage": "flame",
+      "card": "Dark Charmeleon",
+      "set": "Team Rocket",
+      "number": "32/82",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmeleon_(TCG)"
+    },
+    {
+      "id": "flame-gym-challenge-31-132",
+      "stage": "flame",
+      "card": "Blaine's Charmeleon",
+      "set": "Gym Challenge",
+      "number": "31/132",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charmeleon_(TCG)"
+    },
+    {
+      "id": "inferno-base-set-4-102",
+      "stage": "inferno",
+      "card": "Charizard",
+      "set": "Base Set",
+      "number": "4/102",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-base-set-2-4-130",
+      "stage": "inferno",
+      "card": "Charizard",
+      "set": "Base Set 2",
+      "number": "4/130",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-legendary-collection-3-110",
+      "stage": "inferno",
+      "card": "Charizard",
+      "set": "Legendary Collection",
+      "number": "3/110",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-box-topper-s1-s4",
+      "stage": "inferno",
+      "card": "Charizard",
+      "set": "Box Topper",
+      "number": "S1/S4",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-stormfront-103-100",
+      "stage": "inferno",
+      "card": "Charizard",
+      "set": "Stormfront",
+      "number": "103/100",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-celebrations-4-102",
+      "stage": "inferno",
+      "card": "Charizard",
+      "set": "Celebrations",
+      "number": "4/102",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-charizard-ho-oh-ex-deck-003-034",
+      "stage": "inferno",
+      "card": "Charizard",
+      "set": "Charizard & Ho-Oh ex Deck",
+      "number": "003/034",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-expedition-base-set-6-165",
+      "stage": "inferno",
+      "card": "Charizard",
+      "set": "Expedition Base Set",
+      "number": "6/165",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-expedition-base-set-40-165",
+      "stage": "inferno",
+      "card": "Charizard",
+      "set": "Expedition Base Set",
+      "number": "40/165",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-expedition-base-set-39-165",
+      "stage": "inferno",
+      "card": "Charizard",
+      "set": "Expedition Base Set",
+      "number": "39/165",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-skyridge-146-144",
+      "stage": "inferno",
+      "card": "Charizard",
+      "set": "Skyridge",
+      "number": "146/144",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-box-topper-9-12",
+      "stage": "inferno",
+      "card": "Charizard",
+      "set": "Box Topper",
+      "number": "9/12",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-ex-dragon-100-97",
+      "stage": "inferno",
+      "card": "Charizard",
+      "set": "EX Dragon",
+      "number": "100/97",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-ex-crystal-guardians-4-100",
+      "stage": "inferno",
+      "card": "Charizard δ",
+      "set": "EX Crystal Guardians",
+      "number": "4/100",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-ex-power-keepers-6-108",
+      "stage": "inferno",
+      "card": "Charizard",
+      "set": "EX Power Keepers",
+      "number": "6/108",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-secret-wonders-3-132",
+      "stage": "inferno",
+      "card": "Charizard",
+      "set": "Secret Wonders",
+      "number": "3/132",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-arceus-1-99",
+      "stage": "inferno",
+      "card": "Charizard",
+      "set": "Arceus",
+      "number": "1/99",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-boundaries-crossed-20-149",
+      "stage": "inferno",
+      "card": "Charizard",
+      "set": "Boundaries Crossed",
+      "number": "20/149",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-plasma-storm-136-135",
+      "stage": "inferno",
+      "card": "Charizard",
+      "set": "Plasma Storm",
+      "number": "136/135",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-legendary-treasures-19-113",
+      "stage": "inferno",
+      "card": "Charizard",
+      "set": "Legendary Treasures",
+      "number": "19/113",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-generations-rc5-rc32",
+      "stage": "inferno",
+      "card": "Charizard",
+      "set": "Generations",
+      "number": "RC5/RC32",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-evolutions-11-108",
+      "stage": "inferno",
+      "card": "Charizard",
+      "set": "Evolutions",
+      "number": "11/108",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-dragon-majesty-3-70",
+      "stage": "inferno",
+      "card": "Charizard",
+      "set": "Dragon Majesty",
+      "number": "3/70",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-team-up-14-181",
+      "stage": "inferno",
+      "card": "Charizard",
+      "set": "Team Up",
+      "number": "14/181",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-sm-black-star-promos-sm158",
+      "stage": "inferno",
+      "card": "Charizard",
+      "set": "SM Black Star Promos",
+      "number": "SM158",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-sm-black-star-promos-sm226",
+      "stage": "inferno",
+      "card": "Charizard",
+      "set": "SM Black Star Promos",
+      "number": "SM226",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-detective-pikachu-5-18",
+      "stage": "inferno",
+      "card": "Charizard",
+      "set": "Detective Pikachu",
+      "number": "5/18",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-vivid-voltage-025-185",
+      "stage": "inferno",
+      "card": "Charizard",
+      "set": "Vivid Voltage",
+      "number": "025/185",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-swsh-black-star-promos-swsh066",
+      "stage": "inferno",
+      "card": "Charizard",
+      "set": "SWSH Black Star Promos",
+      "number": "SWSH066",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-lost-origin-tg03-tg30",
+      "stage": "inferno",
+      "card": "Charizard",
+      "set": "Lost Origin",
+      "number": "TG03/TG30",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-pok-mon-go-010-078",
+      "stage": "inferno",
+      "card": "Charizard",
+      "set": "Pokémon GO",
+      "number": "010/078",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-team-rocket-4-82",
+      "stage": "inferno",
+      "card": "Dark Charizard",
+      "set": "Team Rocket",
+      "number": "4/82",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-team-rocket-21-82",
+      "stage": "inferno",
+      "card": "Dark Charizard",
+      "set": "Team Rocket",
+      "number": "21/82",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-gym-challenge-2-132",
+      "stage": "inferno",
+      "card": "Blaine's Charizard",
+      "set": "Gym Challenge",
+      "number": "2/132",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-neo-destiny-107-105",
+      "stage": "inferno",
+      "card": "Shining Charizard",
+      "set": "Neo Destiny",
+      "number": "107/105",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-ex-firered-leafgreen-105-112",
+      "stage": "inferno",
+      "card": "Charizard ex",
+      "set": "EX FireRed & LeafGreen",
+      "number": "105/112",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-ex-dragon-frontiers-100-101",
+      "stage": "inferno",
+      "card": "Charizard ☆ δ",
+      "set": "EX Dragon Frontiers",
+      "number": "100/101",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-supreme-victors-20-147",
+      "stage": "inferno",
+      "card": "Charizard G",
+      "set": "Supreme Victors",
+      "number": "20/147",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-supreme-victors-143-147",
+      "stage": "inferno",
+      "card": "Charizard G LV.X",
+      "set": "Supreme Victors",
+      "number": "143/147",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-dp-black-star-promos-dp45",
+      "stage": "inferno",
+      "card": "Charizard G LV.X",
+      "set": "DP Black Star Promos",
+      "number": "DP45",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-flashfire-11-106",
+      "stage": "inferno",
+      "card": "Charizard-EX",
+      "set": "Flashfire",
+      "number": "11/106",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-flashfire-100-106",
+      "stage": "inferno",
+      "card": "Charizard-EX",
+      "set": "Flashfire",
+      "number": "100/106",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-xy-black-star-promos-xy29",
+      "stage": "inferno",
+      "card": "Charizard-EX",
+      "set": "XY Black Star Promos",
+      "number": "XY29",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-flashfire-12-106",
+      "stage": "inferno",
+      "card": "Charizard-EX",
+      "set": "Flashfire",
+      "number": "12/106",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-xy-black-star-promos-xy121",
+      "stage": "inferno",
+      "card": "Charizard-EX",
+      "set": "XY Black Star Promos",
+      "number": "XY121",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-evolutions-12-108",
+      "stage": "inferno",
+      "card": "Charizard-EX",
+      "set": "Evolutions",
+      "number": "12/108",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-xy-black-star-promos-xy17",
+      "stage": "inferno",
+      "card": "Charizard-EX",
+      "set": "XY Black Star Promos",
+      "number": "XY17",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-generations-11-83",
+      "stage": "inferno",
+      "card": "Charizard-EX",
+      "set": "Generations",
+      "number": "11/83",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-flashfire-13-106",
+      "stage": "inferno",
+      "card": "M Charizard-EX",
+      "set": "Flashfire",
+      "number": "13/106",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-flashfire-107-106",
+      "stage": "inferno",
+      "card": "M Charizard-EX",
+      "set": "Flashfire",
+      "number": "107/106",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-evolutions-13-108",
+      "stage": "inferno",
+      "card": "M Charizard-EX",
+      "set": "Evolutions",
+      "number": "13/108",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-evolutions-101-108",
+      "stage": "inferno",
+      "card": "M Charizard-EX",
+      "set": "Evolutions",
+      "number": "101/108",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-flashfire-69-106",
+      "stage": "inferno",
+      "card": "M Charizard-EX",
+      "set": "Flashfire",
+      "number": "69/106",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-flashfire-108-106",
+      "stage": "inferno",
+      "card": "M Charizard-EX",
+      "set": "Flashfire",
+      "number": "108/106",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-generations-12-83",
+      "stage": "inferno",
+      "card": "M Charizard-EX",
+      "set": "Generations",
+      "number": "12/83",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-burning-shadows-20-147",
+      "stage": "inferno",
+      "card": "Charizard-GX",
+      "set": "Burning Shadows",
+      "number": "20/147",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-burning-shadows-150-147",
+      "stage": "inferno",
+      "card": "Charizard-GX",
+      "set": "Burning Shadows",
+      "number": "150/147",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-sm-black-star-promos-sm60",
+      "stage": "inferno",
+      "card": "Charizard-GX",
+      "set": "SM Black Star Promos",
+      "number": "SM60",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-hidden-fates-sv49-sv94",
+      "stage": "inferno",
+      "card": "Charizard-GX",
+      "set": "Hidden Fates",
+      "number": "SV49/SV94",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-hidden-fates-9-68",
+      "stage": "inferno",
+      "card": "Charizard-GX",
+      "set": "Hidden Fates",
+      "number": "9/68",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-sm-black-star-promos-sm211",
+      "stage": "inferno",
+      "card": "Charizard-GX",
+      "set": "SM Black Star Promos",
+      "number": "SM211",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-sm-black-star-promos-sm195",
+      "stage": "inferno",
+      "card": "Charizard-GX",
+      "set": "SM Black Star Promos",
+      "number": "SM195",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-unbroken-bonds-20-214",
+      "stage": "inferno",
+      "card": "Reshiram & Charizard-GX",
+      "set": "Unbroken Bonds",
+      "number": "20/214",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-unbroken-bonds-194-214",
+      "stage": "inferno",
+      "card": "Reshiram & Charizard-GX",
+      "set": "Unbroken Bonds",
+      "number": "194/214",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-unbroken-bonds-217-214",
+      "stage": "inferno",
+      "card": "Reshiram & Charizard-GX",
+      "set": "Unbroken Bonds",
+      "number": "217/214",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-sm-black-star-promos-sm201",
+      "stage": "inferno",
+      "card": "Reshiram & Charizard-GX",
+      "set": "SM Black Star Promos",
+      "number": "SM201",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-sm-black-star-promos-sm247",
+      "stage": "inferno",
+      "card": "Reshiram & Charizard-GX",
+      "set": "SM Black Star Promos",
+      "number": "SM247",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-cosmic-eclipse-22-236",
+      "stage": "inferno",
+      "card": "Charizard & Braixen-GX",
+      "set": "Cosmic Eclipse",
+      "number": "22/236",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-cosmic-eclipse-212-236",
+      "stage": "inferno",
+      "card": "Charizard & Braixen-GX",
+      "set": "Cosmic Eclipse",
+      "number": "212/236",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-cosmic-eclipse-251-236",
+      "stage": "inferno",
+      "card": "Charizard & Braixen-GX",
+      "set": "Cosmic Eclipse",
+      "number": "251/236",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-sm-black-star-promos-sm230",
+      "stage": "inferno",
+      "card": "Charizard & Braixen-GX",
+      "set": "SM Black Star Promos",
+      "number": "SM230",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-darkness-ablaze-019-189",
+      "stage": "inferno",
+      "card": "Charizard V",
+      "set": "Darkness Ablaze",
+      "number": "019/189",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-swsh-black-star-promos-swsh050",
+      "stage": "inferno",
+      "card": "Charizard V",
+      "set": "SWSH Black Star Promos",
+      "number": "SWSH050",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-champion-s-path-079-073",
+      "stage": "inferno",
+      "card": "Charizard V",
+      "set": "Champion's Path",
+      "number": "079/073",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-brilliant-stars-017-172",
+      "stage": "inferno",
+      "card": "Charizard V",
+      "set": "Brilliant Stars",
+      "number": "017/172",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-brilliant-stars-153-172",
+      "stage": "inferno",
+      "card": "Charizard V",
+      "set": "Brilliant Stars",
+      "number": "153/172",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-brilliant-stars-154-172",
+      "stage": "inferno",
+      "card": "Charizard V",
+      "set": "Brilliant Stars",
+      "number": "154/172",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-swsh-black-star-promos-swsh260",
+      "stage": "inferno",
+      "card": "Charizard V",
+      "set": "SWSH Black Star Promos",
+      "number": "SWSH260",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-crown-zenith-018-159",
+      "stage": "inferno",
+      "card": "Charizard V",
+      "set": "Crown Zenith",
+      "number": "018/159",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-darkness-ablaze-020-189",
+      "stage": "inferno",
+      "card": "Charizard VMAX",
+      "set": "Darkness Ablaze",
+      "number": "020/189",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-champion-s-path-074-073",
+      "stage": "inferno",
+      "card": "Charizard VMAX",
+      "set": "Champion's Path",
+      "number": "074/073",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-shining-fates-sv107-sv122",
+      "stage": "inferno",
+      "card": "Charizard VMAX",
+      "set": "Shining Fates",
+      "number": "SV107/SV122",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-swsh-black-star-promos-swsh261",
+      "stage": "inferno",
+      "card": "Charizard VMAX",
+      "set": "SWSH Black Star Promos",
+      "number": "SWSH261",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-swsh-black-star-promos-swsh133",
+      "stage": "inferno",
+      "card": "Lance's Charizard V",
+      "set": "SWSH Black Star Promos",
+      "number": "SWSH133",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-swsh-black-star-promos-swsh075",
+      "stage": "inferno",
+      "card": "Special Delivery Charizard",
+      "set": "SWSH Black Star Promos",
+      "number": "SWSH075",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-brilliant-stars-018-172",
+      "stage": "inferno",
+      "card": "Charizard VSTAR",
+      "set": "Brilliant Stars",
+      "number": "018/172",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-brilliant-stars-174-172",
+      "stage": "inferno",
+      "card": "Charizard VSTAR",
+      "set": "Brilliant Stars",
+      "number": "174/172",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-swsh-black-star-promos-swsh262",
+      "stage": "inferno",
+      "card": "Charizard VSTAR",
+      "set": "SWSH Black Star Promos",
+      "number": "SWSH262",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-crown-zenith-019-159",
+      "stage": "inferno",
+      "card": "Charizard VSTAR",
+      "set": "Crown Zenith",
+      "number": "019/159",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-pok-mon-go-011-078",
+      "stage": "inferno",
+      "card": "Radiant Charizard",
+      "set": "Pokémon GO",
+      "number": "011/078",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-crown-zenith-020-159",
+      "stage": "inferno",
+      "card": "Radiant Charizard",
+      "set": "Crown Zenith",
+      "number": "020/159",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-obsidian-flames-125-197",
+      "stage": "inferno",
+      "card": "Charizard ex",
+      "set": "Obsidian Flames",
+      "number": "125/197",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-obsidian-flames-215-197",
+      "stage": "inferno",
+      "card": "Charizard ex",
+      "set": "Obsidian Flames",
+      "number": "215/197",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-obsidian-flames-223-197",
+      "stage": "inferno",
+      "card": "Charizard ex",
+      "set": "Obsidian Flames",
+      "number": "223/197",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-obsidian-flames-228-197",
+      "stage": "inferno",
+      "card": "Charizard ex",
+      "set": "Obsidian Flames",
+      "number": "228/197",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-svp-black-star-promos-056",
+      "stage": "inferno",
+      "card": "Charizard ex",
+      "set": "SVP Black Star Promos",
+      "number": "056",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-paldean-fates-054-091",
+      "stage": "inferno",
+      "card": "Charizard ex",
+      "set": "Paldean Fates",
+      "number": "054/091",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-svp-black-star-promos-074",
+      "stage": "inferno",
+      "card": "Charizard ex",
+      "set": "SVP Black Star Promos",
+      "number": "074",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-paldean-fates-234-091",
+      "stage": "inferno",
+      "card": "Charizard ex",
+      "set": "Paldean Fates",
+      "number": "234/091",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-svp-black-star-promos-196",
+      "stage": "inferno",
+      "card": "Charizard ex",
+      "set": "SVP Black Star Promos",
+      "number": "196",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-151-006-165",
+      "stage": "inferno",
+      "card": "Charizard ex",
+      "set": "151",
+      "number": "006/165",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-151-183-165",
+      "stage": "inferno",
+      "card": "Charizard ex",
+      "set": "151",
+      "number": "183/165",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-151-199-165",
+      "stage": "inferno",
+      "card": "Charizard ex",
+      "set": "151",
+      "number": "199/165",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-svp-black-star-promos-161",
+      "stage": "inferno",
+      "card": "Charizard ex",
+      "set": "SVP Black Star Promos",
+      "number": "161",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-phantasmal-flames-013-094",
+      "stage": "inferno",
+      "card": "Mega Charizard X ex",
+      "set": "Phantasmal Flames",
+      "number": "013/094",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-phantasmal-flames-109-094",
+      "stage": "inferno",
+      "card": "Mega Charizard X ex",
+      "set": "Phantasmal Flames",
+      "number": "109/094",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-phantasmal-flames-125-094",
+      "stage": "inferno",
+      "card": "Mega Charizard X ex",
+      "set": "Phantasmal Flames",
+      "number": "125/094",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-phantasmal-flames-130-094",
+      "stage": "inferno",
+      "card": "Mega Charizard X ex",
+      "set": "Phantasmal Flames",
+      "number": "130/094",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-mep-black-star-promos-023",
+      "stage": "inferno",
+      "card": "Mega Charizard X ex",
+      "set": "MEP Black Star Promos",
+      "number": "023",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-mep-black-star-promos-029",
+      "stage": "inferno",
+      "card": "Mega Charizard X ex",
+      "set": "MEP Black Star Promos",
+      "number": "029",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-ascended-heroes-022-217",
+      "stage": "inferno",
+      "card": "Mega Charizard Y ex",
+      "set": "Ascended Heroes",
+      "number": "022/217",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-ascended-heroes-294-217",
+      "stage": "inferno",
+      "card": "Mega Charizard Y ex",
+      "set": "Ascended Heroes",
+      "number": "294/217",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    },
+    {
+      "id": "inferno-mep-black-star-promos-030",
+      "stage": "inferno",
+      "card": "Mega Charizard Y ex",
+      "set": "MEP Black Star Promos",
+      "number": "030",
+      "sourceUrl": "https://bulbapedia.bulbagarden.net/wiki/Charizard_(TCG)"
+    }
+  ]
+}

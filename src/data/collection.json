@@ -1,0 +1,33 @@
+{
+  "lastUpdated": "2026-08-03",
+  "currentSet": 1,
+  "setsAwarded": 0,
+  "feesSpentUsd": 0,
+  "weeklyDelta": 0,
+  "ownedIds": [],
+  "stages": [
+    {
+      "key": "ember",
+      "stage": "Ember",
+      "pokemon": "Charmander",
+      "blurb": "The cheap end. Charmander is never a chase card, so this bar moves fastest — not because we prioritise it, but because it's the least expensive."
+    },
+    {
+      "key": "flame",
+      "stage": "Flame",
+      "pokemon": "Charmeleon",
+      "blurb": "The forgotten middle. Nobody collects Charmeleon on purpose, which makes it the quietest stretch of the run."
+    },
+    {
+      "key": "inferno",
+      "stage": "Inferno",
+      "pokemon": "Charizard",
+      "blurb": "The wall. Every card here is somebody's grail, and 113 of the 200 sit in this one stage."
+    }
+  ],
+  "recentPickups": [],
+  "rips": {
+    "spentUsd": 0,
+    "packsOpened": 0
+  }
+}

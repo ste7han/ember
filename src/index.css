@@ -1,0 +1,185 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-ash-950: #0a0605;
+  --color-ash-900: #120b07;
+  --color-ash-800: #1c110a;
+  --color-ash-700: #2a1a10;
+  --color-ash-600: #3d2718;
+
+  --color-ember-400: #ffb347;
+  --color-ember-500: #ff8c42;
+  --color-ember-600: #ff6b1a;
+  --color-ember-700: #e0530a;
+
+  --color-bone-100: #f7f0e8;
+  --color-bone-300: #d6c6b6;
+  --color-bone-500: #9c8877;
+
+  --font-display: 'Bricolage Grotesque', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    margin: 0;
+    background-color: var(--color-ash-950);
+    color: var(--color-bone-100);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: var(--color-ember-600);
+    color: var(--color-ash-950);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-ember-500);
+    outline-offset: 3px;
+  }
+}
+
+@layer utilities {
+  .tnum {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Warme gloed achter de hero en sectiekoppen. */
+  .glow-ember {
+    background-image: radial-gradient(
+      ellipse 60% 50% at 50% 0%,
+      rgb(255 107 26 / 0.2),
+      transparent 70%
+    );
+  }
+
+  .text-flame {
+    background-image: linear-gradient(
+      170deg,
+      var(--color-ember-400),
+      var(--color-ember-600) 55%,
+      var(--color-ember-700)
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition:
+      opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .reveal-in {
+    opacity: 1;
+    transform: none;
+  }
+
+  /*
+   * Opstijgende vonk. Drift en duur komen per deeltje uit een inline custom
+   * property, zodat 24 spans met één keyframe toe kunnen.
+   */
+  .ember-spark {
+    animation: ember-rise var(--spark-duration, 7s) linear
+      var(--spark-delay, 0s) infinite;
+  }
+
+  /*
+   * De 200 vakjes lopen als een golf in beeld in plaats van in één klap.
+   *
+   * Alleen binnen een `.reveal`-container: op /#/checklist staat het mozaïek
+   * zonder reveal-wrapper en moeten de vakjes gewoon meteen zichtbaar zijn.
+   * De vertraging per vakje komt uit `--i`, gezet op het element zelf.
+   */
+  /*
+   * Eigen waarnemer op het mozaïek zelf, niet op de sectie. De sectiekop staat
+   * honderden pixels boven de vakjes, dus hangen aan de sectie-reveal betekent
+   * dat de golf al is uitgespeeld voordat je de vakjes ziet.
+   */
+  .mosaic-wave .mosaic-tile {
+    opacity: 0;
+  }
+
+  .mosaic-wave-in .mosaic-tile {
+    animation: tile-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: calc(var(--i, 0) * 7ms);
+  }
+
+  /* Kaartsilhouetten als achtergrondtextuur. Puur decoratief. */
+  .card-motif {
+    background-image:
+      linear-gradient(
+        to bottom,
+        transparent 0 8%,
+        rgb(255 107 26 / 0.05) 8% 62%,
+        transparent 62% 66%,
+        rgb(255 107 26 / 0.03) 66% 92%,
+        transparent 92%
+      );
+    background-size: 84px 118px;
+    background-repeat: repeat;
+    mask-image: radial-gradient(ellipse 70% 80% at 50% 50%, #000, transparent 72%);
+  }
+}
+
+@keyframes tile-in {
+  from {
+    opacity: 0;
+    transform: translateY(7px) scale(0.86);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes ember-rise {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 0, 0) scale(0.6);
+  }
+  12% {
+    opacity: var(--spark-opacity, 0.7);
+  }
+  70% {
+    opacity: var(--spark-opacity, 0.7);
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(var(--spark-drift, 1rem), -18rem, 0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  /* Vonken staan stil in plaats van te verdwijnen: de sfeer blijft, de beweging niet. */
+  .ember-spark {
+    animation: none;
+    opacity: 0.5;
+  }
+
+  .mosaic-wave .mosaic-tile,
+  .mosaic-wave-in .mosaic-tile {
+    animation: none;
+    opacity: 1;
+  }
+}
