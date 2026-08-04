@@ -103,6 +103,35 @@ export function HowPage() {
             We could finish the set roughly twice as quickly by keeping it all.
             That's the trade, and it's deliberate.
           </p>
+          <p>
+            Both halves sit in their own public wallet, and the front page shows
+            what's in each of them right now. You don't have to believe the
+            split — you can watch it.
+          </p>
+          <ul className="space-y-1.5 font-mono text-xs break-all text-bone-500">
+            <li>
+              The Hunt —{' '}
+              <a
+                href={`https://solscan.io/account/${site.wallets.hunt}`}
+                target="_blank"
+                rel="noreferrer"
+                className="text-ember-500 underline underline-offset-4 hover:text-ember-400"
+              >
+                {site.wallets.hunt}
+              </a>
+            </li>
+            <li>
+              The Rips —{' '}
+              <a
+                href={`https://solscan.io/account/${site.wallets.rips}`}
+                target="_blank"
+                rel="noreferrer"
+                className="text-ember-500 underline underline-offset-4 hover:text-ember-400"
+              >
+                {site.wallets.rips}
+              </a>
+            </li>
+          </ul>
         </Block>
 
         <Block title="The furnace">

@@ -1,6 +1,7 @@
 import { site } from '../data/site'
 import { collection, ownedTotal, targetTotal } from '../lib/collection'
-import { num } from '../lib/format'
+import { num, truncate, usd } from '../lib/format'
+import { useTreasury, type Pot } from '../hooks/useTreasury'
 import { Section } from './ui/Section'
 
 /**
@@ -12,7 +13,7 @@ const steps = [
   {
     n: '01',
     title: 'Fees come in',
-    body: `Every trade generates a creator fee. We take none of it. It all goes to one public wallet.`,
+    body: `Every trade generates a creator fee. We take none of it. It splits down the middle into two public wallets you can watch.`,
   },
   {
     n: '02',
@@ -26,8 +27,52 @@ const steps = [
   },
 ]
 
+/** Het saldo dat er nú staat, met een link om het zelf na te kijken. */
+function PotBalance({
+  pot,
+  wallet,
+  status,
+}: {
+  pot?: Pot
+  wallet: string
+  status: string
+}) {
+  return (
+    <div className="mt-4 border-t border-ash-800 pt-4">
+      <p className="font-mono text-[0.65rem] tracking-[0.18em] text-bone-500 uppercase">
+        In the pot
+      </p>
+      {status === 'live' && pot ? (
+        <p className="tnum mt-1 font-display text-2xl font-bold text-ember-400">
+          {pot.sol.toLocaleString('en-US', { maximumFractionDigits: 2 })}{' '}
+          <span className="font-sans text-sm font-normal text-bone-500">SOL</span>
+          {pot.usd !== null && (
+            <span className="ml-2 font-sans text-sm font-normal text-bone-500">
+              {usd(pot.usd)}
+            </span>
+          )}
+        </p>
+      ) : (
+        <p className="tnum mt-1 font-mono text-sm text-bone-500">
+          {status === 'loading' ? 'Checking…' : 'Unavailable'}
+        </p>
+      )}
+      <a
+        href={`https://solscan.io/account/${wallet}`}
+        target="_blank"
+        rel="noreferrer"
+        className="mt-1.5 inline-block font-mono text-[0.7rem] text-ember-500 underline underline-offset-4 transition-colors hover:text-ember-400"
+      >
+        {truncate(wallet, 6, 6)} — check it on Solscan
+      </a>
+    </div>
+  )
+}
+
 /** De twee potten, met de vraag die iedereen stelt als kop. */
 function Engines() {
+  const { treasury, status } = useTreasury()
+
   return (
     <div className="mt-12 grid gap-4 sm:grid-cols-2">
       <div className="rounded-2xl border border-ember-700/50 bg-ember-600/5 p-6">
@@ -43,6 +88,11 @@ function Engines() {
         <p className="tnum mt-4 font-mono text-xs text-bone-500">
           {num(ownedTotal)} of {num(targetTotal)} secured
         </p>
+        <PotBalance
+          pot={treasury?.hunt}
+          wallet={site.wallets.hunt}
+          status={status}
+        />
       </div>
 
       <div className="rounded-2xl border border-ash-700 bg-ash-800/40 p-6">
@@ -59,6 +109,11 @@ function Engines() {
         <p className="tnum mt-4 font-mono text-xs text-bone-500">
           {num(collection.rips.packsOpened)} packs opened
         </p>
+        <PotBalance
+          pot={treasury?.rips}
+          wallet={site.wallets.rips}
+          status={status}
+        />
       </div>
     </div>
   )

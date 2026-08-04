@@ -11,8 +11,25 @@ export const site = {
   /** Solana mint address. Leeg = pre-launch modus. */
   tokenAddress: '',
 
-  /** Publieke wallet waar 100% van de creator fees binnenkomt. Leeg = link verbergen. */
-  creatorWallet: '',
+  /**
+   * De twee potten, allebei publiek.
+   *
+   * De creator fees worden 50/50 verdeeld over deze wallets. Ze staan hier
+   * omdat het openbare adressen zijn: iedereen mag ze op Solscan naslaan en
+   * nakijken wat er in zit en wat eruit gaat. Dat is het punt.
+   *
+   * `/api/treasury` haalt de saldo's live op, zodat de site niet hoeft te
+   * beweren hoeveel er in de pot zit maar het gewoon laat zien.
+   */
+  wallets: {
+    /** 50% — losse kaarten van de checklist kopen. Voedt de teller. */
+    hunt: '9buyzGoxoN2HQdtdueVdfbNPF5f9eboFcF4GfSzZEaLG',
+    /** 50% — verzegelde pakjes. Wat eruit komt gaat naar burns en giveaways. */
+    rips: 'AhjomZS8EPnY8vMVcWDehAF4NZxi7Y6Panr6f4K5oGUK',
+  },
+
+  /** Blijft bestaan voor de "verifieer op Solscan"-link; wijst naar de jachtpot. */
+  creatorWallet: '9buyzGoxoN2HQdtdueVdfbNPF5f9eboFcF4GfSzZEaLG',
 
   /**
    * De afbakening van de missie. Dit is de belangrijkste zin op de site: zonder
