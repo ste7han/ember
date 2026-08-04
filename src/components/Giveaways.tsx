@@ -3,7 +3,6 @@ import { site } from '../data/site'
 import type { Giveaway } from '../data/types'
 import { collection } from '../lib/collection'
 import { shortDate, truncate } from '../lib/format'
-import { Flame } from './Flame'
 import { Section } from './ui/Section'
 
 const all = giveaways as Giveaway[]
@@ -34,17 +33,27 @@ function LiveCard({ g }: { g: Giveaway }) {
   )
 }
 
-/** De verdeelregel. Dit is wat holders daadwerkelijk terugkrijgen. */
+/**
+ * De verdeelregel. Geen niveaus: je kans ís je aandeel, en dat is ook precies
+ * wat de trekkingstool doet. Hier stonden eerder tiers met eigen rechten, maar
+ * die kende de tool nooit — de site beloofde iets wat het mechanisme niet deed.
+ */
 function Tiers() {
   return (
     <div className="mb-12">
       <div className="rounded-2xl border border-ash-800 bg-ash-900/50 p-6 sm:p-8">
         <h3 className="font-display text-xl font-bold tracking-tight sm:text-2xl">
-          The rule is simple
+          Your chance is your share
         </h3>
         <p className="mt-3 max-w-2xl text-sm leading-relaxed text-bone-300">
           Charmander, Charmeleon and Charizard stay with us. Everything else of
-          value goes to holders, weighted by how much you hold.
+          value goes to holders.
+        </p>
+        <p className="mt-3 max-w-2xl text-sm leading-relaxed text-bone-300">
+          There are no tiers and no minimums. Every holder is in every draw, and
+          your odds are simply how much of the supply you hold. One percent of
+          the supply is one percent of the tickets. Nothing is reserved for
+          bigger wallets, and no card is off limits to smaller ones.
         </p>
 
         <div className="mt-6 rounded-xl border border-ember-700/50 bg-ember-600/5 p-6">
@@ -63,31 +72,6 @@ function Tiers() {
               ? 'none awarded yet'
               : `${collection.setsAwarded} awarded so far`}
           </p>
-        </div>
-
-        <div className="mt-8 grid gap-4 sm:grid-cols-3">
-          {site.holderTiers.map((tier, i) => (
-            <div
-              key={tier.name}
-              className={`rounded-xl border p-6 ${
-                i === site.holderTiers.length - 1
-                  ? 'border-ember-700/50 bg-ember-600/5'
-                  : 'border-ash-700 bg-ash-800/40'
-              }`}
-            >
-              <div className="flex items-center gap-2">
-                <Flame
-                  className={`h-4 w-4 ${i === 0 ? 'opacity-50' : ''}`}
-                />
-                <h4 className="font-display text-lg font-bold">{tier.name}</h4>
-              </div>
-              <p className="tnum mt-2 font-mono text-xs text-ember-400">
-                {tier.minSupplyPct === 0
-                  ? 'Any amount'
-                  : `${tier.minSupplyPct}%+ of supply`}
-              </p>
-            </div>
-          ))}
         </div>
 
         <p className="mt-6 text-sm leading-relaxed text-bone-300">

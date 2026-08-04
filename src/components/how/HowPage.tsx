@@ -180,22 +180,16 @@ export function HowPage() {
             profit.
           </p>
           <p>
-            Thresholds are set in percent of supply rather than token counts,
-            because at these prices a fixed number stops meaning anything within
-            a week.
+            There are no tiers and no minimums. Every holder is in every draw,
+            and your odds are your share of the supply: hold one percent, get one
+            percent of the tickets. Nothing is reserved for bigger wallets and no
+            card is off limits to smaller ones.
           </p>
-          <ul className="space-y-1.5">
-            {site.holderTiers.map((tier) => (
-              <li key={tier.name}>
-                <span className="text-bone-100">{tier.name}</span>
-                {': '}
-                {tier.minSupplyPct === 0
-                  ? 'any amount'
-                  : `${tier.minSupplyPct}% of supply`}
-                . {tier.blurb}
-              </li>
-            ))}
-          </ul>
+          <p>
+            That is also exactly what the tool does. It weights the holder list
+            by balance and knows nothing about levels, so there is no rule here
+            that only exists in writing.
+          </p>
           <p>
             Every draw is reproducible. The winner comes from{' '}
             <span className="font-mono text-xs">SHA-256(seed)</span> mapped onto

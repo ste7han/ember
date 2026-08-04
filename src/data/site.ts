@@ -121,34 +121,18 @@ export const site = {
   },
 
   /**
-   * Holder-tiers voor de giveaways. Elke kaart van waarde die de collectie niet
-   * nodig heeft gaat naar holders — hoe groter de holder, hoe meer lootjes.
+   * Geen tiers, geen drempels, geen kaarten die aan een minimum hangen.
    *
-   * Drempels staan bewust in procent van de supply, niet in aantallen tokens:
-   * bij een memecoin beweegt de koers te hard om vaste aantallen zinnig te
-   * houden. `minSupplyPct` is het minimum om in die tier te vallen.
+   * Iedere holder zit in iedere trekking. Je kans is je aandeel: houd je één
+   * procent van de supply, dan heb je één procent van de lootjes. Dat is de
+   * hele regel, en het is ook precies wat de trekkingstool doet — die weegt op
+   * saldo en kent geen niveaus.
+   *
+   * Er stonden hier eerder tiers met eigen rechten (toegang tot bepaalde
+   * trekkingen, eerste keus op de beste kaart). Die stonden alleen in de tekst:
+   * de tool heeft ze nooit gekend. Beloof niets wat het mechanisme niet doet.
    */
-  holderTiers: [
-    {
-      name: 'Spark',
-      minSupplyPct: 0,
-      blurb: 'Every holder, no minimum. In the draw for every card we give away.',
-    },
-    {
-      name: 'Blaze',
-      minSupplyPct: 0.1,
-      blurb:
-        'Weighted entries plus access to the graded and vintage draws, not just the modern pulls.',
-    },
-    {
-      name: 'Wildfire',
-      minSupplyPct: 0.5,
-      blurb:
-        'Everything above, plus first claim on the single best card of each month before it goes to a draw.',
-    },
-  ],
 
-  /** Lege links worden overal automatisch verborgen of uitgeschakeld. */
   links: {
     x: 'https://x.com/EmberTokenTCG',
     telegram: 'https://t.me/embertokenTCG',

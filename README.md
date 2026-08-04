@@ -250,15 +250,14 @@ leeg voor set 2.
 Bewaar de oude `ownedIds` wel ergens — dat is de inventaris van de set die je
 houdt of weggeeft.
 
-De tiers staan in `site.ts` onder `holderTiers`. Drempels zijn in **procent van
-de supply**, niet in aantallen tokens — bij een memecoin beweegt de koers te hard
-om vaste aantallen zinnig te houden.
+**Geen tiers, geen drempels.** Iedere holder zit in iedere trekking en je kans
+is je aandeel: één procent van de supply is één procent van de lootjes. Er is
+niets gereserveerd voor grote wallets en geen kaart is verboden voor kleine.
 
-| Tier     | Drempel        |
-| -------- | -------------- |
-| Spark    | elk bedrag     |
-| Blaze    | 0,1% supply    |
-| Wildfire | 0,5% supply    |
+Dat is ook precies wat `lib/raffle.ts` doet: wegen op saldo, verder niets. Er
+stonden hier eerder tiers met eigen rechten, maar die kende de tool nooit — de
+site beloofde iets wat het mechanisme niet deed. Bouw je ooit toch niveaus, bouw
+ze dan éérst in de tool.
 
 In `src/data/giveaways.json` zet je `status` op `"live"` voor een lopende
 verloting, `"closed"` voor het archief. Vul bij afgeronde giveaways `winner` en
