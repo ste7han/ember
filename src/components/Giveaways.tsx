@@ -203,14 +203,14 @@ export function Giveaways() {
         want dat is het moment waarop iemand wil controleren.
       */}
       <p className="mt-10 max-w-2xl text-xs leading-relaxed text-bone-500">
-        Every draw is reproducible. Open the same tool, paste the snapshot we
-        published, enter the same master seed, and you land on the same winner. On
-        any computer.{' '}
+        Every draw is reproducible. Take the snapshot and the seed we published,
+        put them into the checker, and you land on the same winner we did. On any
+        computer.{' '}
         <a
           href="#/draw"
           className="text-ember-500 underline underline-offset-4 transition-colors hover:text-ember-400"
         >
-          Run it yourself
+          Check one yourself
         </a>
         .
       </p>

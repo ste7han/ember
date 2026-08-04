@@ -206,7 +206,7 @@ export function HowPage() {
               href="#/draw"
               className="text-ember-500 underline underline-offset-4 hover:text-ember-400"
             >
-              Run it yourself
+              Check it yourself
             </a>
             .
           </p>

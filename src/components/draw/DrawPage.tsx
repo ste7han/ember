@@ -13,6 +13,7 @@ import {
 import { num } from '../../lib/format'
 import { Flame } from '../Flame'
 import { CELL_W, REEL_LEN, Reel, WINNER_INDEX } from './Reel'
+import { VerifyPanel } from './VerifyPanel'
 
 const SPIN_MS = 7200
 
@@ -51,7 +52,76 @@ const inputCls =
 
 const today = () => new Date().toISOString().slice(0, 10)
 
+const UNLOCK_KEY = 'ember:draw-unlocked'
+
+/**
+ * Alleen onze eigen wallets mogen een trekking draaien.
+ *
+ * Let op wat dit is en niet is. Het houdt bezoekers uit de tool, zodat niemand
+ * per ongeluk of expres een "EMBER-trekking" kan draaien die er officieel
+ * uitziet. Het maakt het rekenwerk niet geheim: dat staat open in de repository
+ * en hoort daar ook, want kijkers moeten onze uitslag kunnen overdoen. Daarvoor
+ * is de controlemodus hieronder.
+ */
+function useDrawAccess() {
+  const [unlocked, setUnlocked] = useState(
+    () => sessionStorage.getItem(UNLOCK_KEY) === 'yes',
+  )
+  const [busy, setBusy] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+
+  const unlock = async () => {
+    setError(null)
+    setBusy(true)
+    try {
+      const w = window as unknown as Record<string, any>
+      const provider = w.phantom?.solana ?? w.solflare ?? w.solana
+      if (!provider) throw new Error('No browser wallet found.')
+
+      const { publicKey } = await provider.connect()
+      const wallet = publicKey.toString()
+      const issuedAt = new Date().toISOString()
+      const message = [
+        'EMBER: unlock the draw tool',
+        '',
+        `Wallet: ${wallet}`,
+        `Time: ${issuedAt}`,
+        '',
+        'Signing this proves you control this wallet.',
+        'It is not a transaction and costs nothing.',
+      ].join('\n')
+
+      const { signature } = await provider.signMessage(
+        new TextEncoder().encode(message),
+        'utf8',
+      )
+
+      const res = await fetch('/api/draw-auth', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          wallet,
+          issuedAt,
+          signature: btoa(String.fromCharCode(...signature)),
+        }),
+      })
+      const data = await res.json()
+      if (!res.ok) throw new Error(data.error ?? 'Could not unlock.')
+
+      sessionStorage.setItem(UNLOCK_KEY, 'yes')
+      setUnlocked(true)
+    } catch (err) {
+      setError((err as Error).message)
+    } finally {
+      setBusy(false)
+    }
+  }
+
+  return { unlocked, unlock, busy, error }
+}
+
 export function DrawPage() {
+  const access = useDrawAccess()
   const [prize, setPrize] = useState('')
   const [holdersText, setHoldersText] = useState('')
   const [seed, setSeed] = useState('')
@@ -242,7 +312,42 @@ export function DrawPage() {
       </header>
 
       <main className="mx-auto max-w-6xl px-5 py-10 sm:px-8">
-        {phase === 'setup' ? (
+        {!access.unlocked ? (
+          <>
+            <h1 className="font-display text-3xl font-extrabold tracking-tight sm:text-5xl">
+              Check a draw.
+            </h1>
+            <p className="mt-4 max-w-2xl text-sm leading-relaxed text-bone-300">
+              Running a draw is something only we do, from the wallet that pays
+              for the cards. Checking one is something anyone can do, and that is
+              the part that matters. Paste the snapshot and the seed we published
+              and you will land on the same winner we did.
+            </p>
+
+            <VerifyPanel />
+
+            <div className="mt-12 border-t border-ash-800 pt-8">
+              <p className="max-w-2xl text-sm leading-relaxed text-bone-500">
+                Running the draws is limited to the {site.name} wallets. The
+                maths is not: it is{' '}
+                <span className="font-mono text-xs">SHA-256(seed)</span> over the
+                weighted holder list, and that code is public. You do not need
+                our permission to check us.
+              </p>
+              <button
+                type="button"
+                onClick={access.unlock}
+                disabled={access.busy}
+                className="mt-4 rounded-full border border-ash-600 px-5 py-2.5 text-sm font-semibold transition-colors hover:border-ember-600 hover:text-ember-400 disabled:opacity-40"
+              >
+                {access.busy ? 'Waiting for your wallet…' : 'Unlock with wallet'}
+              </button>
+              {access.error && (
+                <p className="mt-3 text-sm text-ember-400">{access.error}</p>
+              )}
+            </div>
+          </>
+        ) : phase === 'setup' ? (
           <>
             <h1 className="font-display text-3xl font-extrabold tracking-tight sm:text-5xl">
               {history.length === 0 ? 'Set up the draw' : `Draw #${drawNumber}`}
