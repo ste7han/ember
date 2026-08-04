@@ -15,6 +15,7 @@ import { Nav } from './components/Nav'
 import { Story } from './components/Story'
 import { Vault } from './components/Vault'
 import { Wall } from './components/Wall'
+import { WalletPage } from './components/wallet/WalletPage'
 
 /**
  * Twee losse pagina's naast de homepage. Allebei bewust niet in de nav, wel
@@ -28,6 +29,7 @@ const routeFromHash = () => {
   if (hash.startsWith('#/how')) return 'how'
   if (hash.startsWith('#/shipping')) return 'shipping'
   if (hash.startsWith('#/admin')) return 'admin'
+  if (hash.startsWith('#/wallet')) return 'wallet'
   return 'home'
 }
 
@@ -45,6 +47,7 @@ export default function App() {
   if (route === 'how') return <HowPage />
   if (route === 'shipping') return <ShippingPage />
   if (route === 'admin') return <AdminPage />
+  if (route === 'wallet') return <WalletPage />
 
   return (
     <>

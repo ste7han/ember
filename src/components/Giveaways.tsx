@@ -105,7 +105,14 @@ function Tiers() {
         </p>
 
         <p className="mt-4 text-xs leading-relaxed text-bone-500">
-          Better odds, not a guarantee, and never a promise of profit.{' '}
+          Want to see what a wallet has already won?{' '}
+          <a
+            href="#/wallet"
+            className="text-ember-500 underline underline-offset-4 transition-colors hover:text-ember-400"
+          >
+            Look one up
+          </a>
+          . Better odds, not a guarantee, and never a promise of profit.{' '}
           <a
             href="#/how"
             className="text-ember-500 underline underline-offset-4 transition-colors hover:text-ember-400"

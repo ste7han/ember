@@ -29,6 +29,9 @@ export function Footer() {
             <a href="#/draw" className="transition-colors hover:text-ember-400">
               Draw tool
             </a>
+            <a href="#/wallet" className="transition-colors hover:text-ember-400">
+              Wallet lookup
+            </a>
             <a
               href="#/shipping"
               className="transition-colors hover:text-ember-400"
