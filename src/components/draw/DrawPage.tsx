@@ -183,7 +183,7 @@ export function DrawPage() {
             ? ` · ${num(data.excluded.length)} wallet(s) excluded: ${data.excluded
                 .map((e: { owner: string }) => shortWallet(e.owner))
                 .join(', ')}`
-            : ' · nothing excluded — check that the LP and fee wallet are in EMBER_EXCLUDE'),
+            : ' · nothing excluded, check that the LP and fee wallet are in EMBER_EXCLUDE'),
       })
     } catch (err) {
       setLoadNote({ ok: false, text: (err as Error).message })

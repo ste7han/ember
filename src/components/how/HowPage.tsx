@@ -48,7 +48,7 @@ export function HowPage() {
         </h1>
         <p className="mt-4 max-w-2xl text-sm leading-relaxed text-bone-300">
           Everything on the front page in full. If a rule matters, it's written
-          down here — and if it isn't written down here, it isn't a rule.
+          down here. And if it isn't written down here, it isn't a rule.
         </p>
 
         <Block title={`Where the ${num(targetTotal)} comes from`}>
@@ -106,11 +106,11 @@ export function HowPage() {
           <p>
             Both halves sit in their own public wallet, and the front page shows
             what's in each of them right now. You don't have to believe the
-            split — you can watch it.
+            split. You can watch it.
           </p>
           <ul className="space-y-1.5 font-mono text-xs break-all text-bone-500">
             <li>
-              The Hunt —{' '}
+              The Hunt:{' '}
               <a
                 href={`https://solscan.io/account/${site.wallets.hunt}`}
                 target="_blank"
@@ -121,7 +121,7 @@ export function HowPage() {
               </a>
             </li>
             <li>
-              The Rips —{' '}
+              The Rips:{' '}
               <a
                 href={`https://solscan.io/account/${site.wallets.rips}`}
                 target="_blank"
@@ -141,8 +141,8 @@ export function HowPage() {
             you something. That's the whole idea here too.
           </p>
           <p>
-            Spare cards — duplicates, and anything we pull that isn't part of the
-            line — can be claimed by burning ${site.ticker}. Send the listed
+            Spare cards, meaning duplicates and anything we pull that isn't part of
+            the line, can be claimed by burning ${site.ticker}. Send the listed
             amount to the burn address, then send us the transaction with your
             shipping details and we post the card.
           </p>
@@ -151,8 +151,8 @@ export function HowPage() {
           </p>
           <p>
             That address has no key, so the tokens are unrecoverable. It does not
-            reduce the reported supply the way a token burn instruction would —
-            it takes them out of circulation, which is a different claim, and we
+            reduce the reported supply the way a token burn instruction would. It
+            takes them out of circulation, which is a different claim, and we
             make the one that's true.
           </p>
           <p>
@@ -176,8 +176,8 @@ export function HowPage() {
           <p>
             Anything good we pull that isn't a Charmander, Charmeleon or
             Charizard goes to holders. Entries are weighted by how much you hold,
-            so a bigger holder has better odds — not a guarantee, and not a
-            promise of profit.
+            so a bigger holder has better odds. Not a guarantee, and not a promise of
+            profit.
           </p>
           <p>
             Thresholds are set in percent of supply rather than token counts,
@@ -188,7 +188,7 @@ export function HowPage() {
             {site.holderTiers.map((tier) => (
               <li key={tier.name}>
                 <span className="text-bone-100">{tier.name}</span>
-                {' — '}
+                {': '}
                 {tier.minSupplyPct === 0
                   ? 'any amount'
                   : `${tier.minSupplyPct}% of supply`}

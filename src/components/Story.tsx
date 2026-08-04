@@ -40,8 +40,8 @@ export function Story() {
             printed on the Base Set card. Two things pointing the same way.
           </p>
           <p>
-            We open packs together at the table, filmed from my glasses — so you
-            get my hands and the cards, not us. He's too young to agree to being
+            We open packs together at the table, filmed from my glasses, so you get
+            my hands and the cards instead of us. He's too young to agree to being
             on camera, so he isn't. When he's old enough to decide for himself,
             it's his call.
           </p>

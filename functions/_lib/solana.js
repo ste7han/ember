@@ -73,7 +73,7 @@ export async function verifySignature(walletBase58, message, signatureBase64) {
  */
 export const signingMessage = (wallet, issuedAt) =>
   [
-    'EMBER — save shipping address',
+    'EMBER: save shipping address',
     '',
     `Wallet: ${wallet}`,
     `Time: ${issuedAt}`,

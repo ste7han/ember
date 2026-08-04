@@ -54,7 +54,7 @@ function Tiers() {
           <p className="mt-3 max-w-2xl text-sm leading-relaxed text-bone-300">
             The first finished set stays with us. The second one gets raffled
             off whole, to a single holder. Then a third. The duplicates piling up
-            in the box aren't clutter — they're the next prize.
+            in the box aren't clutter. They're the next prize.
           </p>
           <p className="tnum mt-4 font-mono text-xs text-bone-500">
             Currently building set{' '}
@@ -101,7 +101,7 @@ function Tiers() {
             Save one against your wallet
           </a>{' '}
           and anything it wins goes out straight away. It's encrypted in your
-          browser — nobody can read it but us.
+          browser, so nobody can read it but us.
         </p>
 
         <p className="mt-4 text-xs leading-relaxed text-bone-500">
@@ -204,8 +204,8 @@ export function Giveaways() {
       */}
       <p className="mt-10 max-w-2xl text-xs leading-relaxed text-bone-500">
         Every draw is reproducible. Open the same tool, paste the snapshot we
-        published, enter the same master seed, and you land on the same winner —
-        on any computer.{' '}
+        published, enter the same master seed, and you land on the same winner. On
+        any computer.{' '}
         <a
           href="#/draw"
           className="text-ember-500 underline underline-offset-4 transition-colors hover:text-ember-400"

@@ -131,7 +131,7 @@ export function Hero() {
           </p>
 
           <p className="mt-5 max-w-xl text-base leading-relaxed text-bone-300 sm:text-lg">
-            Charmander, Charmeleon and Charizard — all three at once. We buy
+            Charmander, Charmeleon and Charizard, all three at once. We buy
             whatever we can get, in whatever order it turns up, and a pack picks
             for itself. When the last card lands we start the set again.{' '}
             <span className="text-ember-400">

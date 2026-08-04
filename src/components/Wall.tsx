@@ -19,7 +19,7 @@ export function Wall() {
           on this page.
         </>
       }
-      lede={`One tile per card we have to find. Nothing is hidden and nothing is rounded — ${num(ownedTotal)} of them are lit, which is ${overallPct}% of the job. The empty ones are the honest part.`}
+      lede={`One tile per card we have to find. Nothing hidden, nothing rounded. ${num(ownedTotal)} of them are lit, which is ${overallPct}% of the job. The empty ones are the honest part.`}
       className="relative bg-ash-900/30"
     >
       {/* Kaartsilhouetten als textuur. Decoratief, dus buiten de leesvolgorde. */}

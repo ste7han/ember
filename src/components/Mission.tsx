@@ -23,7 +23,7 @@ const steps = [
   {
     n: '03',
     title: 'The line gets finished',
-    body: 'There is a last card, and most collections never have one. Then we start the set again — and that one goes to a holder.',
+    body: 'There is a last card, and most collections never have one. Then we start the set again, and that one goes to a holder.',
   },
 ]
 
@@ -43,15 +43,19 @@ function PotBalance({
         In the pot
       </p>
       {status === 'live' && pot ? (
-        <p className="tnum mt-1 font-display text-2xl font-bold text-ember-400">
-          {pot.sol.toLocaleString('en-US', { maximumFractionDigits: 2 })}{' '}
-          <span className="font-sans text-sm font-normal text-bone-500">SOL</span>
-          {pot.usd !== null && (
-            <span className="ml-2 font-sans text-sm font-normal text-bone-500">
-              {usd(pot.usd)}
+        <>
+          <p className="tnum mt-1 font-display text-2xl font-bold text-ember-400">
+            {pot.sol.toLocaleString('en-US', { maximumFractionDigits: 2 })}{' '}
+            <span className="font-sans text-sm font-normal text-bone-500">
+              SOL
             </span>
+          </p>
+          {pot.usd !== null && (
+            <p className="tnum font-display text-lg font-bold text-bone-100">
+              {usd(pot.usd)}
+            </p>
           )}
-        </p>
+        </>
       ) : (
         <p className="tnum mt-1 font-mono text-sm text-bone-500">
           {status === 'loading' ? 'Checking…' : 'Unavailable'}
@@ -63,7 +67,7 @@ function PotBalance({
         rel="noreferrer"
         className="mt-1.5 inline-block font-mono text-[0.7rem] text-ember-500 underline underline-offset-4 transition-colors hover:text-ember-400"
       >
-        {truncate(wallet, 6, 6)} — check it on Solscan
+        {truncate(wallet, 6, 6)} · check it on Solscan
       </a>
     </div>
   )
@@ -104,7 +108,7 @@ function Engines() {
         </div>
         <p className="mt-3 text-sm leading-relaxed text-bone-300">
           Packs opened on camera. Everything we pull outside the line goes to
-          holders — drawn in giveaways, or claimable by burning ${site.ticker}.
+          holders, drawn in giveaways or claimable by burning ${site.ticker}.
           This half is yours.
         </p>
         <p className="tnum mt-4 font-mono text-xs text-bone-500">
@@ -133,8 +137,8 @@ export function Mission() {
       lede={
         <>
           Every card in the Charmander line, 1999 to last month.{' '}
-          {num(targetTotal)} of them. Most collectors chase whatever's hot — we
-          picked the boring, countable, finishable thing instead.
+          {num(targetTotal)} of them. Most collectors chase whatever's hot. We picked
+          the boring, countable, finishable thing instead.
         </>
       }
     >

@@ -31,7 +31,7 @@ export function Evolution() {
       id="evolution"
       eyebrow="Evolution"
       title="Three stages. One finish line."
-      lede="Three groups, filled at the same time. No order, no priority — we buy what we can get, and a pack decides for itself. The mascot evolves every third of the way through, and nothing here unlocks on a market cap."
+      lede="Three groups, filled at the same time. No order, no priority. We buy what we can get, and a pack decides for itself. The mascot evolves every third of the way through, and nothing here unlocks on a market cap."
     >
       <div className="mb-8 flex items-center gap-5 rounded-2xl border border-ash-800 bg-ash-900/40 p-6">
         <Mascot className="h-14 w-14 shrink-0" />
@@ -42,7 +42,7 @@ export function Evolution() {
           <p className="mt-1 text-sm leading-relaxed text-bone-300">
             {nextEvolutionAt === null
               ? 'Fully evolved. Every card from here on is the last stretch.'
-              : `Evolves at ${num(nextEvolutionAt)} cards — ${num(nextEvolutionAt - ownedTotal)} to go.`}
+              : `Evolves at ${num(nextEvolutionAt)} cards, ${num(nextEvolutionAt - ownedTotal)} to go.`}
           </p>
         </div>
       </div>

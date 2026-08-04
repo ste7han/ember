@@ -81,7 +81,7 @@ export function Footer() {
             this page: tokens can be burned to claim a spare card while that card
             is listed and still available. Listings are limited, first come first
             served, and we may stop offering them at any time. That is not a
-            return, an investment, or a promise of value — there is no roadmap
+            return, an investment, or a promise of value. There is no roadmap
             obligation and no expectation of profit. Nothing here is financial
             advice. Digital assets are volatile and you may lose the entire value
             of your purchase. Do your own research.

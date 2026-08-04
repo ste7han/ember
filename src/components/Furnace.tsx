@@ -125,7 +125,7 @@ function ReserveBox({
       </button>
       {error && <p className="text-xs text-ember-400">{error}</p>}
       <p className="text-[0.7rem] leading-relaxed text-bone-500">
-        You must burn from this exact wallet — that is how we know the claim is
+        You must burn from this exact wallet. That is how we know the claim is
         yours.
       </p>
     </form>
@@ -269,7 +269,7 @@ export function Furnace() {
           Ember <span className="text-flame">costs you something.</span>
         </>
       }
-      lede="Spare cards from the packs — duplicates, and anything outside the line. Burn the listed amount and the card is yours. Some have a clock; when it runs out they go to the draw instead."
+      lede="Spare cards from the packs: duplicates, and anything outside the line. Burn the listed amount and the card is yours. Some have a clock, and when it runs out they go to the draw instead."
     >
       {/*
         De aanval waar de token naar vernoemd is heeft een prijs, en die staat
@@ -286,8 +286,8 @@ export function Furnace() {
         </footer>
         <p className="mt-4 text-sm leading-relaxed text-bone-300">
           The move this token is named after has always had a cost. You give
-          something up to make it work. Same here — burn ${site.ticker}, take a
-          card off the pile.
+          something up to make it work. Same here. Burn ${site.ticker}, take a card
+          off the pile.
         </p>
       </blockquote>
       {furnace.length === 0 ? (
@@ -322,8 +322,8 @@ export function Furnace() {
         <p className="text-sm leading-relaxed text-bone-300">
           <strong className="font-semibold text-bone-100">Reserve first.</strong>{' '}
           Holding a card locks it to your wallet for fifteen minutes. Burn
-          without a reservation and someone else may have already taken it —
-          tokens can't be un-burned, so don't skip this step.
+          without a reservation and someone else may have already taken it. Tokens
+          can't be un-burned, so don't skip this step.
         </p>
         <p className="mt-3 font-mono text-xs break-all text-bone-500">
           {site.furnace.burnAddress}

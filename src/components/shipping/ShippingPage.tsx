@@ -62,7 +62,7 @@ export function ShippingPage() {
       const issuedAt = new Date().toISOString()
       // Zelfde tekst als de server samenstelt; wijkt er iets af, dan faalt de controle.
       const message = [
-        'EMBER — save shipping address',
+        'EMBER: save shipping address',
         '',
         `Wallet: ${address}`,
         `Time: ${issuedAt}`,
@@ -152,8 +152,8 @@ export function ShippingPage() {
               you first.
             </p>
             <p className="mt-4 text-sm leading-relaxed text-bone-300">
-              Come back here any time to update it — signing again overwrites
-              what's stored. Want it deleted? Send us a DM and it's gone.
+              Come back here any time to update it. Signing again overwrites what's
+              stored. Want it deleted? Send us a DM and it's gone.
             </p>
           </>
         ) : (
@@ -174,8 +174,8 @@ export function ShippingPage() {
               <p className="mt-2 text-sm leading-relaxed text-bone-300">
                 Your address is encrypted in your own browser before it's sent.
                 What gets stored is unreadable without a key that never leaves a
-                laptop — not on the server, not with our hosting provider. Even
-                if that database leaked tomorrow, there'd be nothing in it.
+                laptop, not on the server and not with our hosting provider. Even if
+                that database leaked tomorrow, there'd be nothing in it.
               </p>
               <p className="mt-3 text-sm leading-relaxed text-bone-300">
                 You'll be asked to sign a message with your wallet. That's not a

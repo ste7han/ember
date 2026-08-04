@@ -29,7 +29,7 @@ function Slot({ row, index }: { row: ChecklistRow; index: number }) {
 
   return (
     <li
-      title={`${label}${have ? '' : ' — still missing'}`}
+      title={`${label}${have ? '' : ' · still missing'}`}
       aria-label={`${label}, ${have ? 'owned' : 'missing'}`}
       // --i bepaalt wanneer dit vakje in de golf meedoet.
       style={{ '--i': index } as CSSProperties}
