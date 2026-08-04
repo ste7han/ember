@@ -137,7 +137,7 @@ export function ShippingPage() {
             </h1>
             <p className="mt-4 max-w-xl text-sm leading-relaxed text-bone-300">
               This form goes live once ${site.ticker} has launched and there's
-              something to win. Follow along on X and we'll say when.
+              something to win. Follow on X or join the Telegram and we'll say when.
             </p>
           </>
         ) : phase === 'done' ? (

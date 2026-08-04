@@ -189,8 +189,8 @@ export function Giveaways() {
             <p className="font-display text-xl font-bold">No giveaways yet</p>
             <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-bone-300">
               The first one goes live once ${site.ticker} launches and we've
-              pulled something worth giving away. Follow along on X so you don't
-              miss it.
+              pulled something worth giving away. Follow on X or join the Telegram so
+              you don't miss it.
             </p>
           </div>
         )

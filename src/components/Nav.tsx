@@ -1,5 +1,6 @@
 import { ContractBar } from './ContractBar'
 import { Flame } from './Flame'
+import { Socials } from './Socials'
 import { site } from '../data/site'
 
 const links = [
@@ -36,12 +37,15 @@ export function Nav() {
           ))}
         </ul>
 
-        <a
-          href="#buy"
-          className="rounded-full bg-ember-600 px-4 py-2 text-sm font-semibold text-ash-950 transition-colors hover:bg-ember-500"
-        >
-          Buy ${site.ticker}
-        </a>
+        <div className="flex items-center gap-2">
+          <Socials />
+          <a
+            href="#buy"
+            className="rounded-full bg-ember-600 px-4 py-2 text-sm font-semibold text-ash-950 transition-colors hover:bg-ember-500"
+          >
+            Buy ${site.ticker}
+          </a>
+        </div>
       </nav>
 
       <ContractBar />

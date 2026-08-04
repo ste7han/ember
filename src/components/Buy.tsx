@@ -69,7 +69,7 @@ export function Buy() {
       lede={
         status === 'live' && stats?.marketCapUsd
           ? `Currently ${compactUsd(stats.marketCapUsd)} market cap. Every trade feeds the vault.`
-          : "Not launched yet. Follow on X to get the contract address the second it goes live, and don't trust it from anywhere else."
+          : "Not launched yet. Follow on X or join the Telegram to get the contract address the second it goes live, and don't trust it from anywhere else."
       }
     >
       <div className="grid gap-8 lg:grid-cols-[1.2fr_1fr]">
@@ -86,6 +86,11 @@ export function Buy() {
             <Button href={site.links.x || undefined} variant="ghost">
               Follow on X
             </Button>
+            {site.links.telegram && (
+              <Button href={site.links.telegram} variant="ghost">
+                Telegram
+              </Button>
+            )}
             {site.links.youtube && (
               <Button href={site.links.youtube} variant="ghost">
                 YouTube

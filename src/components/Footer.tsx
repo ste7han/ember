@@ -45,6 +45,16 @@ export function Footer() {
                 X
               </a>
             )}
+            {site.links.telegram && (
+              <a
+                href={site.links.telegram}
+                target="_blank"
+                rel="noreferrer"
+                className="transition-colors hover:text-ember-400"
+              >
+                Telegram
+              </a>
+            )}
             {site.links.pumpfun && (
               <a
                 href={site.links.pumpfun}

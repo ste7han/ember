@@ -148,8 +148,10 @@ export const site = {
     },
   ],
 
+  /** Lege links worden overal automatisch verborgen of uitgeschakeld. */
   links: {
-    x: 'https://x.com/',
+    x: 'https://x.com/EmberTokenTCG',
+    telegram: 'https://t.me/embertokenTCG',
     youtube: '',
     pumpfun: '',
     dexscreener: '',
