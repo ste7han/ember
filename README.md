@@ -432,6 +432,50 @@ npx wrangler d1 execute ember --remote --command "delete from addresses where wa
 Ik ben geen jurist. Laat hier iemand naar kijken die dat wel is voordat het
 formulier live gaat.
 
+## De adminpagina
+
+Op **`/#/admin`** beheer je de burn events en de giveaways met een formulier, in
+plaats van JSON te typen. Je ondertekent per handeling met de deployer-wallet.
+
+**Elke wijziging wordt een commit in deze repository.** Dat is trager dan een
+database, ongeveer een minuut voordat het live staat, en dat is met opzet: een
+gepubliceerde uitslag heeft dan een datum en is niet stilletjes aan te passen.
+Voor een project dat draait op narekenbaarheid is dat het verschil tussen bewijs
+en belofte.
+
+### Eenmalig instellen
+
+**1. Een GitHub-token.** Maak er een aan op github.com onder *Settings →
+Developer settings → Personal access tokens → Fine-grained tokens*. Geef hem
+toegang tot alleen deze repository, en als enige recht **Contents: read and
+write**. Zet hem daarna neer:
+
+```bash
+npx wrangler pages secret put GITHUB_TOKEN
+npx wrangler pages secret put GITHUB_REPO     # ste7han/ember
+```
+
+**2. Automatisch uitrollen.** Er staat een workflow in `.github/workflows/`
+die na elke push opnieuw uitrolt. Die heeft twee secrets nodig in GitHub:
+
+```bash
+gh secret set CLOUDFLARE_API_TOKEN     # maak er een aan met Pages: Edit
+gh secret set CLOUDFLARE_ACCOUNT_ID
+```
+
+Zonder stap 2 maakt de adminpagina wel een commit, maar verandert er niets aan
+de live site.
+
+### Wat de adminpagina niet kan
+
+Alleen `furnace.json` en `giveaways.json` zijn bewerkbaar. Dat staat vast in
+`functions/api/publish.js`. De checklist, de collectie en alle instellingen
+blijven handwerk, want dat zijn de cijfers waar je op afgerekend wordt en die
+wil je niet per ongeluk vanuit een formulier kunnen wijzigen.
+
+Ongeldige JSON wordt geweigerd voordat hij gecommit wordt, zodat een typefout de
+volgende build niet kan slopen.
+
 ## De trekkingstool
 
 Staat op **`/#/draw`**. Niet in de nav, wel publiek bereikbaar — dat is bewust,

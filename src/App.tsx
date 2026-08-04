@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Buy } from './components/Buy'
+import { AdminPage } from './components/admin/AdminPage'
 import { ChecklistPage } from './components/checklist/ChecklistPage'
 import { DrawPage } from './components/draw/DrawPage'
 import { Evolution } from './components/Evolution'
@@ -26,6 +27,7 @@ const routeFromHash = () => {
   if (hash.startsWith('#/checklist')) return 'checklist'
   if (hash.startsWith('#/how')) return 'how'
   if (hash.startsWith('#/shipping')) return 'shipping'
+  if (hash.startsWith('#/admin')) return 'admin'
   return 'home'
 }
 
@@ -42,6 +44,7 @@ export default function App() {
   if (route === 'checklist') return <ChecklistPage />
   if (route === 'how') return <HowPage />
   if (route === 'shipping') return <ShippingPage />
+  if (route === 'admin') return <AdminPage />
 
   return (
     <>
