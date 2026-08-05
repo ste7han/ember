@@ -118,6 +118,8 @@ export const mascotStage: Stage =
  * bijhoudt. Twee plekken voor één feit betekent dat er vroeg of laat een van
  * de twee niet klopt, en dan is de vraag welke. Nu is er nog maar één.
  */
+export const rips = content as Rip[]
+
 export const packsOpened: number = (content as Rip[]).reduce(
   (n, r) => n + (r.packs ?? 0),
   0,

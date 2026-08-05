@@ -9,6 +9,7 @@ const links = [
   { href: '#vault', label: 'Vault' },
   { href: '#story', label: 'Story' },
   { href: '#evolution', label: 'Evolution' },
+  { href: '#rips', label: 'Rips' },
   { href: '#furnace', label: 'Furnace' },
   { href: '#giveaways', label: 'Giveaways' },
 ]

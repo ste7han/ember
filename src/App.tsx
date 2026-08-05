@@ -12,6 +12,7 @@ import { HowPage } from './components/how/HowPage'
 import { ShippingPage } from './components/shipping/ShippingPage'
 import { Mission } from './components/Mission'
 import { Nav } from './components/Nav'
+import { Rips } from './components/Rips'
 import { Story } from './components/Story'
 import { Vault } from './components/Vault'
 import { Wall } from './components/Wall'
@@ -59,6 +60,7 @@ export default function App() {
         <Vault />
         <Story />
         <Evolution />
+        <Rips />
         <Furnace />
         <Giveaways />
         <Buy />
