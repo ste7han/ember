@@ -40,6 +40,16 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: pages deploy dist --project-name ember
 
+      # Het menu naast het tekstvak in Telegram, gelijkgetrokken met
+      # functions/_lib/commands.js. Eén API-aanroep, dus die mag elke keer.
+      # Anders moet je na elk nieuw commando met de hand een script draaien en
+      # je token opnieuw invoeren, en dat vergeet je een keer.
+      - name: Sync Telegram command menu
+        continue-on-error: true
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+        run: node scripts/telegram-commands.mjs
+
       # Pas ná de deploy, zodat de links in het bericht ook echt ergens heen
       # gaan. Mislukt dit, dan is dat vervelend maar geen reden om de deploy
       # rood te maken: de site staat er dan al goed op.

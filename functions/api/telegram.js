@@ -1,3 +1,4 @@
+import { MENU } from '../_lib/commands.js'
 import checklist from '../../src/data/checklist.json'
 import collection from '../../src/data/collection.json'
 import furnace from '../../src/data/furnace.json'
@@ -283,14 +284,7 @@ function answerHelp() {
   return [
     `<b>Ask me about ${TICKER}</b>`,
     '',
-    '/project how this works',
-    '/progress how many cards we have',
-    '/vault photos of the cards we own',
-    '/checklist what counts as a card, and why',
-    '/furnace burning tokens for a card',
-    '/giveaway what is running and how winners are drawn',
-    '/fees where the money goes',
-    '/ca the contract address',
+    ...MENU.map((m) => `/${m.command} ${m.description.toLowerCase()}`),
     '',
     `Everything I say comes out of the same files as the site, so it cannot say something different from ${SITE}.`,
   ].join('\n')

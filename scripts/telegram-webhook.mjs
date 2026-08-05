@@ -16,6 +16,7 @@
  * alles wat het niet heeft.
  */
 
+import { MENU } from '../functions/_lib/commands.js'
 import { createInterface } from 'node:readline/promises'
 import { stdin, stdout } from 'node:process'
 
@@ -114,19 +115,9 @@ async function main() {
     drop_pending_updates: true,
   })
 
-  // De lijst die Telegram in het menu naast het tekstvak toont.
-  await call(token, 'setMyCommands', {
-    commands: [
-      { command: 'project', description: 'How this works' },
-      { command: 'progress', description: 'How many cards we have' },
-      { command: 'vault', description: 'Photos of the cards we own' },
-      { command: 'checklist', description: 'What counts as a card, and why' },
-      { command: 'furnace', description: 'Burning tokens for a card' },
-      { command: 'giveaway', description: 'What is running, and how winners are drawn' },
-      { command: 'fees', description: 'Where the money goes' },
-      { command: 'ca', description: 'The contract address' },
-    ],
-  })
+  // Dezelfde lijst als functions/_lib/commands.js, zodat er maar één plek is
+  // waar commando's staan. Bij elke deploy wordt hij ook automatisch gezet.
+  await call(token, 'setMyCommands', { commands: MENU })
 
   const me = await call(token, 'getMe')
   console.log(`Webhook staat op ${URL_TARGET}`)
