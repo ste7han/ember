@@ -44,9 +44,10 @@ const FILES = {
 /* ------------------------------------------------------------------ git --- */
 
 /**
- * Waar we mee vergelijken. Bij een push met meerdere commits is
- * `github.event.before` de stand van vóór de hele push; alleen naar HEAD~1
- * kijken zou dan de oudste wijzigingen missen.
+ * Waar we mee vergelijken, of null als er niets te vergelijken valt.
+ *
+ * Bij een push met meerdere commits is `github.event.before` de stand van vóór
+ * de hele push; alleen naar HEAD~1 kijken zou dan de oudste wijzigingen missen.
  */
 function baseRef() {
   const i = process.argv.indexOf('--since')
@@ -56,6 +57,17 @@ function baseRef() {
   // Bij een eerste push of een force push staat hier alleen maar nullen.
   if (before && !/^0+$/.test(before)) return before
 
+  /*
+   * Draaien we in de workflow en is er geen `before`, dan was dit geen push:
+   * handmatig gestart, of een force push. Er is dan geen stand van vóór deze
+   * wijziging, en terugvallen op HEAD~1 zou de vorige commit een tweede keer
+   * aankondigen. Iemand die op "Run workflow" drukt om een deploy te herhalen
+   * krijgt dan een dubbele melding van een claim die allang geweest is, en dat
+   * is precies het soort ruis dat een aankondigingskanaal onbetrouwbaar maakt.
+   */
+  if (process.env.GITHUB_ACTIONS) return null
+
+  // Lokaal is HEAD~1 wél wat je bedoelt.
   return 'HEAD~1'
 }
 
@@ -345,6 +357,14 @@ async function main() {
   }
 
   const ref = baseRef()
+  if (!ref) {
+    console.log(
+      'Handmatig gestart zonder --test, dus geen push om mee te vergelijken. ' +
+        'Niets verstuurd.',
+    )
+    return
+  }
+
   const at = (path) => parse(readAt(ref, path), null)
   const now = (path) => parse(readNow(path), null)
 
