@@ -16,7 +16,8 @@
     "addresses": "node scripts/read-addresses.mjs",
     "deploy": "npm run build && wrangler pages deploy dist --project-name ember",
     "announce": "node scripts/announce.mjs",
-    "telegram:webhook": "node scripts/telegram-webhook.mjs"
+    "telegram:webhook": "node scripts/telegram-webhook.mjs",
+    "photos": "node scripts/photos.mjs"
   },
   "dependencies": {
     "react": "^19.2.8",

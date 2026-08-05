@@ -31,6 +31,13 @@ jobs:
           cache: npm
 
       - run: npm ci
+
+      # Vóór de build, want een foto met GPS-coordinaten erin hoort de deploy
+      # tegen te houden. Dat is geen schoonheidsfoutje maar het publiceren van
+      # een huisadres, en dat kun je achteraf niet meer terugnemen.
+      - name: Check the card photos
+        run: npm run photos -- --check
+
       - run: npm run build
 
       - name: Publish to Cloudflare Pages
