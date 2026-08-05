@@ -16,7 +16,10 @@ export type Pickup = {
    * die daar niet onder valt, dan staat dat hier en niet in de kleine lettertjes.
    */
   note?: string
-  /** Pad naar foto in /public/vault/, bv. "/vault/rocket-68.jpg". Leeg = placeholder. */
+  /**
+   * Alleen nodig als de foto anders heet dan de checklist-id. Normaal laat je
+   * dit leeg en noem je het bestand in src/assets/vault/ naar die id.
+   */
   image?: string
 }
 
@@ -170,7 +173,11 @@ export type FurnaceOffer = {
   id: string
   /** Wat het is, bv. "Blastoise — Base Set #2". */
   card: string
-  /** Foto in /public/vault/. Zonder foto toont de kaart een placeholder. */
+  /**
+   * Alleen nodig als de foto anders heet dan `id`. Normaal laat je dit leeg en
+   * noem je het bestand in src/assets/vault/ naar de id hierboven. Zonder foto
+   * toont de kaart een placeholder.
+   */
   image?: string
   /**
    * Waar deze kaart nu heen gaat:
