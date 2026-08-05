@@ -330,6 +330,7 @@ function answerRips() {
       `${shortDate(r.date)} · ${esc(r.title)}${r.packs ? ` (${plural(r.packs, 'pack')})` : ''}`,
     )
     for (const pull of r.pulls ?? []) lines.push(`  pulled ${esc(pull)}`)
+    if (r.note) lines.push(`  ${esc(r.note)}`)
     if (r.url) lines.push(`  ${platform(r.url)}: ${r.url}`)
     lines.push('')
   }

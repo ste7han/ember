@@ -582,7 +582,7 @@ function RipsTab({
   onPublish: (value: unknown, summary: string) => void
 }) {
   const today = new Date().toISOString().slice(0, 10)
-  const empty = { date: today, title: '', url: '', packs: '', pulls: '' }
+  const empty = { date: today, title: '', url: '', packs: '', pulls: '', note: '' }
   const [draft, setDraft] = useState(empty)
 
   const add = () => {
@@ -601,6 +601,7 @@ function RipsTab({
       ...(draft.url.trim() ? { url: draft.url.trim() } : {}),
       ...(draft.packs.trim() ? { packs: Number(draft.packs) } : {}),
       ...(pulls.length ? { pulls } : {}),
+      ...(draft.note.trim() ? { note: draft.note.trim() } : {}),
     }
 
     setItems([item, ...items.filter((r) => r.id !== item.id)])
@@ -650,6 +651,19 @@ function RipsTab({
               className={inputCls}
             />
           </Field>
+          <div className="sm:col-span-2">
+            <Field
+              label="Note"
+              hint="Only if the money did not come straight out of the rips wallet. Say so here rather than nowhere."
+            >
+              <input
+                value={draft.note}
+                onChange={(e) => setDraft({ ...draft, note: e.target.value })}
+                placeholder="$11 came out of the rips wallet, the rest out of my own pocket."
+                className={inputCls}
+              />
+            </Field>
+          </div>
           <div className="sm:col-span-2">
             <Field label="Pulls" hint="One per line. Only worth listing if it was any good.">
               <textarea

@@ -275,6 +275,7 @@ function ripEvents(before, after) {
     if (rip.pulls?.length) {
       lines.push('', 'Out of it:', ...rip.pulls.map((p) => `• ${esc(p)}`))
     }
+    if (rip.note) lines.push('', esc(rip.note))
     if (rip.url) lines.push('', rip.url)
 
     // Bij een video willen we juist wél de voorvertoning van TikTok of X.

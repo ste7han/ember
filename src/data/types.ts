@@ -43,6 +43,12 @@ export type Rip = {
   packs?: number
   /** Wat eruit kwam. Vrij ingevuld, dit is geen checklist-id. */
   pulls?: string[]
+  /**
+   * Eén regel herkomst, voor als die niet vanzelfsprekend is. De site zegt dat
+   * 40% van de fees naar verzegelde pakjes gaat; is een rip deels of helemaal
+   * uit eigen zak betaald, dan staat dat hier en niet nergens.
+   */
+  note?: string
 }
 
 /** Wat je zelf over een fase invult. De getallen komen er niet in. */

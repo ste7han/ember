@@ -49,6 +49,10 @@ function RipCard({ rip }: { rip: Rip }) {
         </ul>
       )}
 
+      {rip.note && (
+        <p className="mt-4 text-xs leading-relaxed text-bone-400">{rip.note}</p>
+      )}
+
       {rip.url ? (
         <a
           href={rip.url}
