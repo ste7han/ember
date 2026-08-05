@@ -12,7 +12,11 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      # Twee commits diep, want scripts/announce.mjs vergelijkt deze stand met
+      # de vorige. Met de standaard van één commit valt er niets te vergelijken.
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
 
       - uses: actions/setup-node@v4
         with:
@@ -28,3 +32,14 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: pages deploy dist --project-name ember
+
+      # Pas ná de deploy, zodat de links in het bericht ook echt ergens heen
+      # gaan. Mislukt dit, dan is dat vervelend maar geen reden om de deploy
+      # rood te maken: de site staat er dan al goed op.
+      - name: Announce on Telegram
+        continue-on-error: true
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          GITHUB_EVENT_BEFORE: ${{ github.event.before }}
+        run: node scripts/announce.mjs

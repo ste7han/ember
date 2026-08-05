@@ -14,7 +14,8 @@
     "db:local": "wrangler d1 execute ember --local --file schema.sql",
     "db:remote": "wrangler d1 execute ember --remote --file schema.sql",
     "addresses": "node scripts/read-addresses.mjs",
-    "deploy": "npm run build && wrangler pages deploy dist --project-name ember"
+    "deploy": "npm run build && wrangler pages deploy dist --project-name ember",
+    "announce": "node scripts/announce.mjs"
   },
   "dependencies": {
     "react": "^19.2.8",
