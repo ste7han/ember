@@ -4,6 +4,7 @@
  *   node scripts/announce.mjs --dry-run     laat zien wat er verstuurd zou worden
  *   node scripts/announce.mjs               verstuurt het echt
  *   node scripts/announce.mjs --since <ref> vergelijk met een andere commit
+ *   node scripts/announce.mjs --test        één bericht, om de koppeling te testen
  *
  * Waarom een diff van de datastanden en geen aanroep vanuit de adminpagina?
  * Omdat alles hier langskomt. De furnace en de giveaways worden door
@@ -29,6 +30,7 @@ import { fileURLToPath } from 'node:url'
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..')
 const SITE = 'https://ember.cards'
 const DRY = process.argv.includes('--dry-run')
+const TEST = process.argv.includes('--test')
 
 /** Meer dan dit in één commit en we vatten samen in plaats van te spammen. */
 const MAX_MESSAGES = 8
@@ -312,7 +314,36 @@ async function send({ text, photo }, { token, chat }) {
   }
 }
 
+/**
+ * Het bericht van `--test`. Bewust geen "test 1 2 3": dit komt in de echte
+ * groep terecht, dus het mag er ook staan als de koppeling werkt.
+ */
+const testEvent = () => ({
+  text: [
+    '<b>Announcement bot is connected</b>',
+    '',
+    'From here you get a message when a card goes into the furnace, when someone burns for one, when a giveaway is drawn, and when the collection grows.',
+    '',
+    'Every one of those comes straight out of the change that put it on the site, so what you read here and what the site shows cannot drift apart.',
+    '',
+    SITE,
+  ].join('\n'),
+})
+
 async function main() {
+  if (TEST) {
+    const token = process.env.TELEGRAM_BOT_TOKEN
+    const chat = process.env.TELEGRAM_CHAT_ID
+    if (DRY || !token || !chat) {
+      console.log(testEvent().text)
+      console.log('\nNiet verstuurd: --dry-run, of de twee secrets ontbreken.')
+      return
+    }
+    await send(testEvent(), { token, chat })
+    console.log('Testbericht verstuurd.')
+    return
+  }
+
   const ref = baseRef()
   const at = (path) => parse(readAt(ref, path), null)
   const now = (path) => parse(readNow(path), null)

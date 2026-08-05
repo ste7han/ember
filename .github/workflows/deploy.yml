@@ -7,6 +7,13 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+    inputs:
+      announce_test:
+        description: >-
+          Stuur één testbericht naar Telegram, om te zien of de bot en het
+          chat-id kloppen. Dit bericht komt in de echte groep terecht.
+        type: boolean
+        default: false
 
 jobs:
   deploy:
@@ -42,4 +49,6 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           GITHUB_EVENT_BEFORE: ${{ github.event.before }}
-        run: node scripts/announce.mjs
+        # Bij een gewone push is `inputs` leeg, dus staat er niets achter en
+        # doet hij de normale diff.
+        run: node scripts/announce.mjs ${{ inputs.announce_test && '--test' || '' }}
