@@ -198,12 +198,94 @@ function answerToken() {
   ].join('\n')
 }
 
+/**
+ * Welke kaartfoto onder welke naam is uitgerold.
+ *
+ * De foto's krijgen bij het bouwen een hash in hun naam, zodat een vervangen
+ * foto niet uit de cache van bezoekers blijft komen. Die naam kunnen we hier
+ * niet raden, dus Vite schrijft een lijstje weg en dat lezen we op.
+ */
+let cachedPhotos
+async function photoUrls() {
+  if (cachedPhotos) return cachedPhotos
+  try {
+    const manifest = await (await fetch(`${SITE}/manifest.json`)).json()
+    const map = {}
+    for (const [src, entry] of Object.entries(manifest)) {
+      const m = src.match(/^src\/assets\/vault\/(.+)\.(?:jpg|jpeg|png|webp|avif)$/)
+      if (m && entry.file) map[m[1]] = `${SITE}/${entry.file}`
+    }
+    cachedPhotos = map
+    return map
+  } catch {
+    // Niet onthouden, zodat een volgende vraag het gewoon opnieuw probeert.
+    return {}
+  }
+}
+
+/** Kaarten die we bezitten én gefotografeerd hebben, nieuwste eerst. */
+async function ownedPhotos() {
+  const urls = await photoUrls()
+  const owned = collection.ownedIds ?? []
+
+  const recent = [...(collection.recentPickups ?? [])]
+    .sort((a, b) => String(b.date).localeCompare(String(a.date)))
+    .map((p) => p.image)
+    .filter((id) => id && owned.includes(id))
+
+  const rest = owned.filter((id) => !recent.includes(id))
+  const rows = new Map(checklist.rows.map((r) => [r.id, r]))
+
+  return [...recent, ...rest]
+    .filter((id) => urls[id])
+    .map((id) => {
+      const r = rows.get(id)
+      return {
+        url: urls[id],
+        label: r ? `${r.card} · ${r.set}${r.number ? ` ${r.number}` : ''}` : id,
+      }
+    })
+}
+
+async function answerVault() {
+  const photos = await ownedPhotos()
+  const c = counts()
+
+  if (photos.length === 0) {
+    return [
+      `<b>The vault</b>`,
+      '',
+      'No photos up yet. Every card gets photographed when it lands, and they show up here and on the site at the same time.',
+      '',
+      `${SITE}/#vault`,
+    ].join('\n')
+  }
+
+  // Telegram doet er maximaal tien tegelijk. De rest staat op de site.
+  const show = photos.slice(0, 10)
+  const rest = photos.length - show.length
+
+  const caption = [
+    `<b>The vault</b>`,
+    '',
+    ...show.map((p) => `• ${esc(p.label)}`),
+    ...(rest > 0 ? ['', `And ${num(rest)} more on the site.`] : []),
+    '',
+    `${num(c.owned)} of ${num(c.total)} cards. Every one of them shot by us, no scans off the internet.`,
+    '',
+    `${SITE}/#vault`,
+  ].join('\n')
+
+  return { caption, photos: show.map((p) => p.url) }
+}
+
 function answerHelp() {
   return [
     `<b>Ask me about ${TICKER}</b>`,
     '',
     '/project how this works',
     '/progress how many cards we have',
+    '/vault photos of the cards we own',
     '/checklist what counts as a card, and why',
     '/furnace burning tokens for a card',
     '/giveaway what is running and how winners are drawn',
@@ -227,6 +309,11 @@ const TOPICS = [
     answer: answerProgress,
     commands: ['progress', 'stats', 'collection'],
     words: ['how many cards', 'how far', 'progress', 'how many do you have'],
+  },
+  {
+    answer: answerVault,
+    commands: ['vault', 'photos', 'pics'],
+    words: ['photo', 'picture', 'show me the cards', 'proof'],
   },
   {
     answer: answerChecklist,
@@ -308,18 +395,55 @@ async function route(text, env) {
 
 /* -------------------------------------------------------------------- http --- */
 
-async function reply(env, chatId, messageId, text) {
-  await fetch(`https://api.telegram.org/bot${env.TELEGRAM_BOT_TOKEN}/sendMessage`, {
+const call = (env, method, body) =>
+  fetch(`https://api.telegram.org/bot${env.TELEGRAM_BOT_TOKEN}/${method}`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      chat_id: chatId,
-      text,
+    body: JSON.stringify(body),
+  })
+
+/**
+ * Een antwoord is tekst, of foto's met een onderschrift. Telegram wil die twee
+ * via verschillende methodes hebben, en bij meer dan één foto weer een andere.
+ */
+async function reply(env, chatId, messageId, answer) {
+  const to = {
+    chat_id: chatId,
+    reply_to_message_id: messageId,
+    allow_sending_without_reply: true,
+  }
+
+  if (typeof answer === 'string') {
+    await call(env, 'sendMessage', {
+      ...to,
+      text: answer,
       parse_mode: 'HTML',
-      reply_to_message_id: messageId,
-      allow_sending_without_reply: true,
       link_preview_options: { is_disabled: true },
-    }),
+    })
+    return
+  }
+
+  const { caption, photos } = answer
+
+  if (photos.length === 1) {
+    await call(env, 'sendPhoto', {
+      ...to,
+      photo: photos[0],
+      caption,
+      parse_mode: 'HTML',
+    })
+    return
+  }
+
+  // Het onderschrift hoort bij de eerste foto; Telegram toont het onder het
+  // hele album.
+  await call(env, 'sendMediaGroup', {
+    ...to,
+    media: photos.map((url, i) => ({
+      type: 'photo',
+      media: url,
+      ...(i === 0 ? { caption, parse_mode: 'HTML' } : {}),
+    })),
   })
 }
 
@@ -361,7 +485,7 @@ export async function onRequestPost({ request, env }) {
   if (!answer) return new Response('ok')
 
   try {
-    await reply(env, msg.chat.id, msg.message_id, answer())
+    await reply(env, msg.chat.id, msg.message_id, await answer())
   } catch {
     // Telegram opnieuw laten proberen heeft geen zin; dan stuurt hij het
     // antwoord straks alsnog, alleen te laat.
