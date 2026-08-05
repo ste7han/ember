@@ -1,7 +1,7 @@
 import { site } from '../data/site'
 
 /**
- * Kleine iconen naar X en Telegram.
+ * Kleine iconen naar X, Telegram en TikTok.
  *
  * Eigen paden, geen externe icon-library: twee glyphs zijn geen dependency
  * waard die je daarna moet bijhouden.
@@ -22,10 +22,19 @@ function TelegramIcon({ className = 'h-4 w-4' }: { className?: string }) {
   )
 }
 
+function TikTokIcon({ className = 'h-4 w-4' }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="currentColor" aria-hidden>
+      <path d="M16.6 5.8a5 5 0 0 1-1.2-3.3h-3.3v13.2a2.9 2.9 0 1 1-2-2.8V9.5a6.2 6.2 0 1 0 5.3 6.2V9.1a8.2 8.2 0 0 0 4.8 1.5V7.3a4.9 4.9 0 0 1-3.6-1.5z" />
+    </svg>
+  )
+}
+
 export function Socials({ className = '' }: { className?: string }) {
   const items = [
     { href: site.links.x, label: 'X', Icon: XIcon },
     { href: site.links.telegram, label: 'Telegram', Icon: TelegramIcon },
+    { href: site.links.tiktok, label: 'TikTok', Icon: TikTokIcon },
   ].filter((i) => i.href)
 
   if (items.length === 0) return null

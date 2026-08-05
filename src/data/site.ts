@@ -146,6 +146,7 @@ export const site = {
   links: {
     x: 'https://x.com/EmberTokenTCG',
     telegram: 'https://t.me/embertokenTCG',
+    tiktok: 'https://www.tiktok.com/@ember_tcg',
     youtube: '',
     pumpfun: 'https://pump.fun/coin/AoLGyZpNoW1fQmcz1E63VZwXWUpHS8bpeY9s2wU1pump',
     dexscreener:
