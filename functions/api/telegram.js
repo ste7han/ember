@@ -1,6 +1,7 @@
 import { MENU } from '../_lib/commands.js'
 import checklist from '../../src/data/checklist.json'
 import collection from '../../src/data/collection.json'
+import content from '../../src/data/content.json'
 import furnace from '../../src/data/furnace.json'
 import giveaways from '../../src/data/giveaways.json'
 
@@ -48,6 +49,8 @@ const esc = (s) =>
   String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
 
 const num = (n) => Number(n).toLocaleString('en-US')
+
+const plural = (n, word) => `${num(n)} ${word}${n === 1 ? '' : 's'}`
 
 /** Exact dezelfde afleiding als src/lib/collection.ts. */
 function counts() {
@@ -280,6 +283,68 @@ async function answerVault() {
   return { caption, photos: show.map((p) => p.url) }
 }
 
+/** Waar een video staat, afgeleid uit de link zelf. */
+function platform(url = '') {
+  if (/tiktok\.com/i.test(url)) return 'TikTok'
+  if (/(?:^|\/\/)(?:www\.)?(?:x\.com|twitter\.com)/i.test(url)) return 'X'
+  if (/youtu\.?be/i.test(url)) return 'YouTube'
+  if (/instagram\.com/i.test(url)) return 'Instagram'
+  return 'Video'
+}
+
+const shortDate = (iso) => {
+  const d = new Date(iso)
+  return Number.isNaN(d.getTime())
+    ? iso
+    : d.toLocaleDateString('en-GB', {
+        day: 'numeric',
+        month: 'short',
+        timeZone: 'UTC',
+      })
+}
+
+/** Nieuwste eerst, want dat is wat iemand die het vraagt wil zien. */
+const ripsNewestFirst = () =>
+  [...(content ?? [])].sort((a, b) => String(b.date).localeCompare(String(a.date)))
+
+function answerRips() {
+  const all = ripsNewestFirst()
+
+  if (all.length === 0) {
+    return [
+      `<b>Rips</b>`,
+      '',
+      `${FEE_SPLIT.rips}% of creator fees goes to sealed packs. They get opened on camera, and whatever comes out that we already have goes to the furnace or a giveaway.`,
+      '',
+      'Nothing filmed yet. The first one goes up soon.',
+      '',
+      `${SITE}`,
+    ].join('\n')
+  }
+
+  const show = all.slice(0, 5)
+  const lines = [`<b>Latest rips</b>`, '']
+
+  for (const r of show) {
+    lines.push(
+      `${shortDate(r.date)} · ${esc(r.title)}${r.packs ? ` (${plural(r.packs, 'pack')})` : ''}`,
+    )
+    for (const pull of r.pulls ?? []) lines.push(`  pulled ${esc(pull)}`)
+    if (r.url) lines.push(`  ${platform(r.url)}: ${r.url}`)
+    lines.push('')
+  }
+
+  // Geteld uit deze lijst, niet uit een los getal ergens anders. Zie de
+  // toelichting bij `rips` in src/data/types.ts.
+  const packs = all.reduce((n, r) => n + (r.packs ?? 0), 0)
+  const filmed = all.filter((r) => r.url).length
+  lines.push(
+    `${plural(packs, 'pack')} opened so far, ${plural(filmed, 'rip')} filmed.`,
+  )
+
+  return lines.join('\n')
+}
+
 function answerHelp() {
   return [
     `<b>Ask me about ${TICKER}</b>`,
@@ -303,6 +368,11 @@ const TOPICS = [
     answer: answerProgress,
     commands: ['progress', 'stats', 'collection'],
     words: ['how many cards', 'how far', 'progress', 'how many do you have'],
+  },
+  {
+    answer: answerRips,
+    commands: ['rips', 'rip', 'tiktok', 'video', 'videos', 'watch'],
+    words: ['tiktok', 'video', 'rip ', 'opening', 'pack opening', 'where can i watch'],
   },
   {
     answer: answerVault,

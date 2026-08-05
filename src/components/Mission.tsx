@@ -1,5 +1,5 @@
 import { site } from '../data/site'
-import { collection, ownedTotal, targetTotal } from '../lib/collection'
+import { ownedTotal, packsOpened, targetTotal } from '../lib/collection'
 import { num, truncate, usd } from '../lib/format'
 import { useTreasury, type Pot } from '../hooks/useTreasury'
 import { Section } from './ui/Section'
@@ -111,7 +111,7 @@ function Engines() {
           holders, drawn in giveaways or claimable by burning ${site.ticker}.
         </p>
         <p className="tnum mt-4 font-mono text-xs text-bone-500">
-          {num(collection.rips.packsOpened)} packs opened
+          {num(packsOpened)} packs opened
         </p>
         <PotBalance
           pot={treasury?.rips}

@@ -17,6 +17,7 @@ export const MENU = [
   { command: 'project', description: 'How this works' },
   { command: 'progress', description: 'How many cards we have' },
   { command: 'vault', description: 'Photos of the cards we own' },
+  { command: 'rips', description: 'The latest pack openings and videos' },
   { command: 'checklist', description: 'What counts as a card, and why' },
   { command: 'furnace', description: 'Burning tokens for a card' },
   { command: 'giveaway', description: 'What is running, and how winners are drawn' },

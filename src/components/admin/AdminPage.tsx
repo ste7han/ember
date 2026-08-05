@@ -1,8 +1,9 @@
 import { useState } from 'react'
+import contentData from '../../data/content.json'
 import furnaceData from '../../data/furnace.json'
 import giveawayData from '../../data/giveaways.json'
 import { site } from '../../data/site'
-import type { FurnaceOffer, Giveaway } from '../../data/types'
+import type { FurnaceOffer, Giveaway, Rip } from '../../data/types'
 import { Flame } from '../Flame'
 import { useOperator } from './useOperator'
 
@@ -47,13 +48,14 @@ type Status = { kind: 'idle' | 'busy' | 'ok' | 'error'; text?: string; url?: str
 
 export function AdminPage() {
   const op = useOperator()
-  const [tab, setTab] = useState<'furnace' | 'giveaways'>('furnace')
+  const [tab, setTab] = useState<'furnace' | 'giveaways' | 'rips'>('furnace')
   const [furnace, setFurnace] = useState<FurnaceOffer[]>(
     furnaceData as FurnaceOffer[],
   )
   const [giveaways, setGiveaways] = useState<Giveaway[]>(
     giveawayData as Giveaway[],
   )
+  const [rips, setRips] = useState<Rip[]>(contentData as Rip[])
   const [status, setStatus] = useState<Status>({ kind: 'idle' })
 
   const publish = async (
@@ -116,7 +118,7 @@ export function AdminPage() {
         </p>
 
         <div className="mt-8 flex gap-2">
-          {(['furnace', 'giveaways'] as const).map((t) => (
+          {(['furnace', 'giveaways', 'rips'] as const).map((t) => (
             <button
               key={t}
               type="button"
@@ -127,22 +129,34 @@ export function AdminPage() {
                   : 'border border-ash-700 text-bone-300 hover:border-ember-600'
               }`}
             >
-              {t === 'furnace' ? 'Burn events' : 'Giveaways'}
+              {t === 'furnace'
+                ? 'Burn events'
+                : t === 'giveaways'
+                  ? 'Giveaways'
+                  : 'Rips'}
             </button>
           ))}
         </div>
 
-        {tab === 'furnace' ? (
+        {tab === 'furnace' && (
           <FurnaceTab
             offers={furnace}
             setOffers={setFurnace}
             onPublish={(v, s) => publish('src/data/furnace.json', v, s)}
           />
-        ) : (
+        )}
+        {tab === 'giveaways' && (
           <GiveawayTab
             items={giveaways}
             setItems={setGiveaways}
             onPublish={(v, s) => publish('src/data/giveaways.json', v, s)}
+          />
+        )}
+        {tab === 'rips' && (
+          <RipsTab
+            items={rips}
+            setItems={setRips}
+            onPublish={(v, s) => publish('src/data/content.json', v, s)}
           />
         )}
 
@@ -548,6 +562,152 @@ function GiveawayTab({
         className="w-full rounded-full bg-ember-600 px-7 py-3.5 font-display text-base font-bold text-ash-950 transition-colors hover:bg-ember-500"
       >
         Publish the giveaways
+      </button>
+    </div>
+  )
+}
+
+/**
+ * Rips en video's. Eén lijst voor allebei, want een gefilmde rip is niet twee
+ * gebeurtenissen. Zet je hier een link bij een rip die er nog geen had, dan
+ * kondigt de bot dat alsnog aan: dan is de video het nieuws.
+ */
+function RipsTab({
+  items,
+  setItems,
+  onPublish,
+}: {
+  items: Rip[]
+  setItems: (v: Rip[]) => void
+  onPublish: (value: unknown, summary: string) => void
+}) {
+  const today = new Date().toISOString().slice(0, 10)
+  const empty = { date: today, title: '', url: '', packs: '', pulls: '' }
+  const [draft, setDraft] = useState(empty)
+
+  const add = () => {
+    const title = draft.title.trim()
+    const pulls = draft.pulls
+      .split('\n')
+      .map((p) => p.trim())
+      .filter(Boolean)
+
+    const item: Rip = {
+      // Datum plus een stukje van de titel: leesbaar en uniek genoeg om op
+      // af te vinken, ook als er twee rips op dezelfde dag zijn.
+      id: `${draft.date}-${title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 40)}`,
+      date: draft.date,
+      title,
+      ...(draft.url.trim() ? { url: draft.url.trim() } : {}),
+      ...(draft.packs.trim() ? { packs: Number(draft.packs) } : {}),
+      ...(pulls.length ? { pulls } : {}),
+    }
+
+    setItems([item, ...items.filter((r) => r.id !== item.id)])
+    setDraft({ ...empty, date: draft.date })
+  }
+
+  return (
+    <div className="mt-8 space-y-8">
+      <section className="rounded-2xl border border-ash-800 bg-ash-900/50 p-6">
+        <h2 className="font-display text-lg font-bold">Log a rip or a video</h2>
+        <p className="mt-2 text-sm text-bone-400">
+          A rip without a link is one we opened but did not film. Add the link
+          later and the bot posts it then, because at that point the video is
+          the news.
+        </p>
+        <div className="mt-4 grid gap-4 sm:grid-cols-2">
+          <Field label="Date">
+            <input
+              type="date"
+              value={draft.date}
+              onChange={(e) => setDraft({ ...draft, date: e.target.value })}
+              className={inputCls}
+            />
+          </Field>
+          <Field label="What it was">
+            <input
+              value={draft.title}
+              onChange={(e) => setDraft({ ...draft, title: e.target.value })}
+              placeholder="Three Phantasmal Flames packs"
+              className={inputCls}
+            />
+          </Field>
+          <Field label="Link" hint="TikTok, X, YouTube or Instagram. Leave empty if it was not filmed.">
+            <input
+              value={draft.url}
+              onChange={(e) => setDraft({ ...draft, url: e.target.value })}
+              placeholder="https://www.tiktok.com/@…/video/…"
+              className={inputCls}
+            />
+          </Field>
+          <Field label="Packs" hint="How many went open.">
+            <input
+              type="number"
+              min="0"
+              value={draft.packs}
+              onChange={(e) => setDraft({ ...draft, packs: e.target.value })}
+              className={inputCls}
+            />
+          </Field>
+          <div className="sm:col-span-2">
+            <Field label="Pulls" hint="One per line. Only worth listing if it was any good.">
+              <textarea
+                rows={3}
+                value={draft.pulls}
+                onChange={(e) => setDraft({ ...draft, pulls: e.target.value })}
+                placeholder={'Charmeleon 012/094\nBlastoise ex 200/191'}
+                className={inputCls}
+              />
+            </Field>
+          </div>
+        </div>
+        <button
+          type="button"
+          onClick={add}
+          disabled={draft.title.trim().length === 0}
+          className="mt-5 rounded-full bg-ember-600 px-6 py-2.5 text-sm font-semibold text-ash-950 transition-colors hover:bg-ember-500 disabled:opacity-30"
+        >
+          Add to the list
+        </button>
+      </section>
+
+      {items.length === 0 ? (
+        <p className="text-sm text-bone-500">Nothing logged yet.</p>
+      ) : (
+        <ul className="space-y-3">
+          {items.map((r, i) => (
+            <li
+              key={r.id}
+              className="flex flex-wrap items-baseline justify-between gap-3 rounded-xl border border-ash-800 bg-ash-900/40 p-4"
+            >
+              <div className="min-w-0">
+                <p className="text-sm font-semibold">{r.title}</p>
+                <p className="font-mono text-xs text-bone-500">
+                  {r.date}
+                  {r.packs ? ` · ${r.packs} packs` : ''}
+                  {r.url ? ' · filmed' : ' · not filmed'}
+                  {r.pulls?.length ? ` · ${r.pulls.length} pulls` : ''}
+                </p>
+              </div>
+              <button
+                type="button"
+                onClick={() => setItems(items.filter((_, x) => x !== i))}
+                className="rounded-md border border-ash-600 px-3 py-1 text-xs font-semibold text-bone-500 transition-colors hover:border-ember-600 hover:text-ember-400"
+              >
+                Remove
+              </button>
+            </li>
+          ))}
+        </ul>
+      )}
+
+      <button
+        type="button"
+        onClick={() => onPublish(items, `Rips: ${items.length} logged`)}
+        className="w-full rounded-full bg-ember-600 px-7 py-3.5 font-display text-base font-bold text-ash-950 transition-colors hover:bg-ember-500"
+      >
+        Publish the rips
       </button>
     </div>
   )

@@ -4,7 +4,9 @@
   "setsAwarded": 0,
   "feesSpentUsd": 0,
   "weeklyDelta": 1,
-  "ownedIds": ["flame-phantasmal-flames-012-094"],
+  "ownedIds": [
+    "flame-phantasmal-flames-012-094"
+  ],
   "stages": [
     {
       "key": "ember",
@@ -27,7 +29,7 @@
   ],
   "recentPickups": [
     {
-      "label": "Charmeleon · Phantasmal Flames 012/094",
+      "label": "Charmeleon \u00b7 Phantasmal Flames 012/094",
       "date": "2026-08-04",
       "stage": "flame",
       "image": "flame-phantasmal-flames-012-094",
@@ -35,7 +37,6 @@
     }
   ],
   "rips": {
-    "spentUsd": 0,
-    "packsOpened": 0
+    "spentUsd": 0
   }
 }

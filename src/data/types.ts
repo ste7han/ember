@@ -22,6 +22,29 @@ export type Pickup = {
 
 export type StageKey = 'ember' | 'flame' | 'inferno'
 
+/**
+ * Eén pakjesopening, en de video ervan als die er is.
+ *
+ * Bewust één lijst voor allebei. Een rip die gefilmd is heeft een `url`, een
+ * rip die we alleen open hebben getrokken niet, en een video zonder pakjes
+ * (een update, een unboxing van post) heeft geen `packs`. Twee aparte lijsten
+ * zouden betekenen dat dezelfde avond op twee plekken staat.
+ */
+export type Rip = {
+  /** Stabiele sleutel, bv. "2026-08-05-phantasmal-flames". */
+  id: string
+  /** ISO datum, bv. "2026-08-05". */
+  date: string
+  /** Wat het was, bv. "Three Phantasmal Flames packs". */
+  title: string
+  /** Link naar de video. Leeg betekent: wel geopend, niet gefilmd. */
+  url?: string
+  /** Hoeveel pakjes er open zijn gegaan. */
+  packs?: number
+  /** Wat eruit kwam. Vrij ingevuld, dit is geen checklist-id. */
+  pulls?: string[]
+}
+
 /** Wat je zelf over een fase invult. De getallen komen er niet in. */
 export type StageMeta = {
   key: StageKey
@@ -81,12 +104,17 @@ export type Collection = {
   /** De drie fases van de evolutielijn. Bewust zonder getallen. */
   stages: StageMeta[]
   recentPickups: Pickup[]
-  /** De tweede motor: pakjes voor content en giveaways. */
+  /**
+   * De tweede motor: pakjes voor content en giveaways.
+   *
+   * Het aantal geopende pakjes staat hier bewust niet. Dat wordt geteld uit
+   * content.json, want daar staan de rips zelf. Zou het er allebei staan, dan
+   * kunnen ze uit elkaar lopen en is er geen manier om te weten welke klopt.
+   * Zie `packsOpened` in src/lib/collection.ts.
+   */
   rips: {
     /** Deel van `feesSpentUsd` dat naar verzegelde pakjes ging. */
     spentUsd: number
-    /** Aantal pakjes dat we op camera geopend hebben. */
-    packsOpened: number
   }
 }
 

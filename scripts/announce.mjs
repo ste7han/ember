@@ -39,6 +39,7 @@ const FILES = {
   furnace: 'src/data/furnace.json',
   giveaways: 'src/data/giveaways.json',
   collection: 'src/data/collection.json',
+  content: 'src/data/content.json',
 }
 
 /* ------------------------------------------------------------------ git --- */
@@ -108,6 +109,8 @@ const shortWallet = (w) =>
   typeof w === 'string' && w.length > 12 ? `${w.slice(0, 4)}…${w.slice(-4)}` : w
 
 const num = (n) => Number(n).toLocaleString('en-US')
+
+const plural = (n, word) => `${num(n)} ${word}${n === 1 ? '' : 's'}`
 
 /** De foto die bij een id of een `image`-veld hoort, als die in de repo staat. */
 function photoPath(nameOrPath) {
@@ -237,6 +240,50 @@ function giveawayEvents(before, after) {
   return out
 }
 
+/** Waar een video staat, afgeleid uit de link zelf. */
+function platform(url = '') {
+  if (/tiktok\.com/i.test(url)) return 'TikTok'
+  if (/(?:^|\/\/)(?:www\.)?(?:x\.com|twitter\.com)/i.test(url)) return 'X'
+  if (/youtu\.?be/i.test(url)) return 'YouTube'
+  if (/instagram\.com/i.test(url)) return 'Instagram'
+  return null
+}
+
+/**
+ * Nieuwe rips en video's.
+ *
+ * Een rip die later pas gefilmd blijkt te zijn krijgt alsnog een bericht, want
+ * dan is de video het nieuws en niet de opening.
+ */
+function ripEvents(before, after) {
+  const was = byId(before)
+  const out = []
+
+  for (const [id, rip] of byId(after)) {
+    const old = was.get(id)
+    const isNew = !old
+    const gotVideo = old && !old.url && rip.url
+    if (!isNew && !gotVideo) continue
+
+    const where = platform(rip.url)
+    const lines = [
+      `<b>${where ? `New on ${where}` : 'New rip'}</b>`,
+      '',
+      esc(rip.title),
+    ]
+    if (rip.packs) lines.push(`${plural(rip.packs, 'pack')}.`)
+    if (rip.pulls?.length) {
+      lines.push('', 'Out of it:', ...rip.pulls.map((p) => `• ${esc(p)}`))
+    }
+    if (rip.url) lines.push('', rip.url)
+
+    // Bij een video willen we juist wél de voorvertoning van TikTok of X.
+    out.push({ text: lines.join('\n'), preview: Boolean(rip.url) })
+  }
+
+  return out
+}
+
 /** Kaarten die bij de collectie gekomen zijn, met de stand erbij. */
 function collectionEvents(before, after, checklist) {
   const was = new Set(before?.ownedIds ?? [])
@@ -290,7 +337,7 @@ function collectionEvents(before, after, checklist) {
 
 /* ------------------------------------------------------------- versturen --- */
 
-async function send({ text, photo }, { token, chat }) {
+async function send({ text, photo, preview }, { token, chat }) {
   // Een onderschrift bij een foto mag maar 1024 tekens zijn, een bericht 4096.
   if (photo && text.length <= 1024) {
     const form = new FormData()
@@ -318,7 +365,7 @@ async function send({ text, photo }, { token, chat }) {
       chat_id: chat,
       text,
       parse_mode: 'HTML',
-      link_preview_options: { is_disabled: true },
+      link_preview_options: { is_disabled: !preview },
     }),
   })
   if (!res.ok) {
@@ -374,6 +421,7 @@ async function main() {
   let events = [
     ...furnaceEvents(at(FILES.furnace) ?? [], now(FILES.furnace) ?? []),
     ...giveawayEvents(at(FILES.giveaways) ?? [], now(FILES.giveaways) ?? []),
+    ...ripEvents(at(FILES.content) ?? [], now(FILES.content) ?? []),
     ...collectionEvents(at(FILES.collection), now(FILES.collection), checklist),
   ]
 

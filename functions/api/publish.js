@@ -18,7 +18,11 @@ import { checkOperator } from '../_lib/operators.js'
  */
 
 /** Alleen deze bestanden. Voorkomt dat een fout in de UI ergens anders schrijft. */
-const ALLOWED = new Set(['src/data/furnace.json', 'src/data/giveaways.json'])
+const ALLOWED = new Set([
+  'src/data/furnace.json',
+  'src/data/giveaways.json',
+  'src/data/content.json',
+])
 
 const API = 'https://api.github.com'
 

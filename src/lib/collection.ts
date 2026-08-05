@@ -1,6 +1,13 @@
 import checklistRaw from '../data/checklist.json'
+import content from '../data/content.json'
 import raw from '../data/collection.json'
-import type { Checklist, ChecklistRow, Collection, Stage } from '../data/types'
+import type {
+  Checklist,
+  ChecklistRow,
+  Collection,
+  Rip,
+  Stage,
+} from '../data/types'
 import { photoUrl } from './photos'
 
 export const collection = raw as Collection
@@ -103,3 +110,18 @@ export const mascotStage: Stage =
           Math.floor((ownedTotal / targetTotal) * stages.length),
         )
       ]
+
+/**
+ * Hoeveel pakjes er open zijn gegaan, geteld uit de rips-log.
+ *
+ * Stond eerst als los getal in collection.json, naast een lijst die hetzelfde
+ * bijhoudt. Twee plekken voor één feit betekent dat er vroeg of laat een van
+ * de twee niet klopt, en dan is de vraag welke. Nu is er nog maar één.
+ */
+export const packsOpened: number = (content as Rip[]).reduce(
+  (n, r) => n + (r.packs ?? 0),
+  0,
+)
+
+/** Hoeveel van die rips ook echt gefilmd zijn. */
+export const ripsFilmed: number = (content as Rip[]).filter((r) => r.url).length
