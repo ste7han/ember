@@ -81,14 +81,42 @@ export const isComplete = (s: Stage) => s.owned >= s.total
 /** Hoeveel van de drie fases al helemaal vol zitten. */
 export const stagesComplete = stages.filter(isComplete).length
 
-/** Voortgang als percentage, altijd tussen 0 en 100. */
+/**
+ * Voortgang als percentage, altijd tussen 0 en 100.
+ *
+ * Afgerond, want dit gaat naar de breedte van een balk. Voor een percentage
+ * dat iemand léést is `pctLabel` bedoeld.
+ */
 export function pct(owned: number, total: number) {
   if (total <= 0) return 0
   return Math.min(100, Math.round((owned / total) * 100))
 }
 
-/** Voortgang over de hele set. Dit is het getal dat de hero laat zien. */
-export const overallPct = pct(ownedTotal, targetTotal)
+/**
+ * Hetzelfde percentage, maar om te tonen: één decimaal.
+ *
+ * Op hele procenten afronden gaf "0% of the way there" terwijl er wel degelijk
+ * een kaart in de vault lag. Bij een noemer van 207 is één kaart 0,5%, en dan
+ * is 0% gewoon onwaar. Een halve regel tekst die niet klopt is precies wat we
+ * overal aan het weghalen zijn.
+ *
+ * De decimaal valt weg als hij niets toevoegt, dus "50%" en niet "50,0%".
+ */
+export function pctLabel(owned: number, total: number): string {
+  if (total <= 0 || owned <= 0) return '0'
+
+  const exact = Math.min(100, (owned / total) * 100)
+  const rounded = Math.round(exact * 10) / 10
+
+  // Bezit je iets, dan mag er nooit een nul staan, ook niet bij een enorme
+  // noemer. Liever "minder dan 0,1" dan een getal dat het bestaan ontkent.
+  if (rounded === 0) return '<0.1'
+
+  return Number.isInteger(rounded) ? String(rounded) : rounded.toFixed(1)
+}
+
+/** Voortgang over de hele set, als tekst. Dit is wat de hero laat zien. */
+export const overallPctLabel = pctLabel(ownedTotal, targetTotal)
 
 /**
  * Welke gedaante de mascotte nu heeft.

@@ -3,7 +3,7 @@ import {
   collection,
   currentSetGoesToHolder,
   isComplete,
-  overallPct,
+  overallPctLabel,
   ownedTotal,
   pct,
   stages,
@@ -135,7 +135,7 @@ export function Hero() {
             whatever we can get, in whatever order it turns up, and a pack picks
             for itself. When the last card lands we start the set again.{' '}
             <span className="text-ember-400">
-              {overallPct}% of the way there.
+              {overallPctLabel}% of the way there.
             </span>
           </p>
 

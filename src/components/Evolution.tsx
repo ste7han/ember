@@ -4,6 +4,7 @@ import {
   mascotStage,
   ownedTotal,
   pct,
+  pctLabel,
   stages,
   targetTotal,
 } from '../lib/collection'
@@ -52,6 +53,7 @@ export function Evolution() {
           const done = isComplete(s)
           const started = s.owned > 0
           const progress = pct(s.owned, s.total)
+          const label = pctLabel(s.owned, s.total)
 
           return (
             <li
@@ -111,7 +113,7 @@ export function Evolution() {
                   />
                 </div>
                 <p className="tnum mt-2 font-mono text-xs text-bone-500">
-                  {num(s.owned)} of {num(s.total)} · {progress}%
+                  {num(s.owned)} of {num(s.total)} · {label}%
                   {!done && ` · ${num(s.total - s.owned)} to go`}
                 </p>
               </div>

@@ -1,5 +1,5 @@
 import { site } from '../data/site'
-import { ownedTotal, overallPct, targetTotal } from '../lib/collection'
+import { ownedTotal, overallPctLabel, targetTotal } from '../lib/collection'
 import { num } from '../lib/format'
 import { Mosaic, MosaicLegend } from './Mosaic'
 import { Section } from './ui/Section'
@@ -19,7 +19,7 @@ export function Wall() {
           on this page.
         </>
       }
-      lede={`One tile per card we have to find. Nothing hidden, nothing rounded. ${num(ownedTotal)} of them are lit, which is ${overallPct}% of the job. The empty ones are the honest part.`}
+      lede={`One tile per card we have to find. Nothing hidden, nothing rounded. ${num(ownedTotal)} of them ${ownedTotal === 1 ? 'is' : 'are'} lit, which is ${overallPctLabel}% of the job. The empty ones are the honest part.`}
       className="relative bg-ash-900/30"
     >
       {/* Kaartsilhouetten als textuur. Decoratief, dus buiten de leesvolgorde. */}
